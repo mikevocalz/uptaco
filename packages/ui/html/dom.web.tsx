@@ -68,6 +68,7 @@ export const SelectBase = (
 // ---- interactive controls — real DOM elements, RN-style prop surface -------
 
 export interface PressBaseProps extends P {
+  id?: string;
   onPress?: () => void;
   /** Real <button> on web, so it can be driven from the keyboard. */
   onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;

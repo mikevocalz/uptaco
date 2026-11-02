@@ -3,7 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "exports": { ".": "./src/index.ts" },
-  "scripts": { "test": "node --experimental-strip-types --test test/*.test.mjs" },
-  "engines": { "node": ">=24.15" }
+  "exports": {
+    ".": "./src/index.ts",
+    "./bag": "./src/bag.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=24.15"
+  }
 }

@@ -1,0 +1,73 @@
+'use client';
+import { useEffect, useRef } from 'react';
+import { compileMotion } from 'kinetrell';
+import { bagFlightDefinition } from './bag-definitions';
+import type { BagVisualEvent, MotionRect } from './bag-types';
+export type {BagVisualEvent,MotionRect} from './bag-types';
+export {bagButtonPulse} from './bag-definitions';
+
+/** DOM measurement and visual clones are confined to this web-only UI adapter.
+ * Feature screens never create DOM nodes or run direct GSAP timelines.
+ */
+export function captureBagMotionOrigin(id:string):MotionRect|undefined{
+  if(typeof document==='undefined') return undefined;
+  const node=document.getElementById(id);
+  if(!node)return undefined;
+  const rect=node.getBoundingClientRect();
+  if(rect.width<1||rect.height<1)return undefined;
+  return {x:rect.left,y:rect.top,width:rect.width,height:rect.height};
+}
+function bagTarget():MotionRect|undefined{
+  const candidates=document.querySelectorAll<HTMLElement>('[data-uptaco-bag-target]');
+  for(const element of candidates){
+    const rect=element.getBoundingClientRect();
+    const style=getComputedStyle(element);
+    if(rect.width>0&&rect.height>0&&style.display!=='none'&&style.visibility!=='hidden')
+      return {x:rect.left,y:rect.top,width:rect.width,height:rect.height};
+  }
+  return undefined;
+}
+function fallbackOrigin():MotionRect{
+  return {x:window.innerWidth*0.5-20,y:window.innerHeight*0.53-20,width:40,height:40};
+}
+
+export function BagMotionLayer({event}:{event:BagVisualEvent|null}){
+  const active=useRef<Set<()=>void>>(new Set());
+  useEffect(()=>{
+    if(!event||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const from=event.origin??fallbackOrigin();
+    const removing=event.kind==='remove'||event.kind==='decrease';
+    const target=bagTarget()??(removing
+      ?{...from,x:from.x+30,y:from.y+100}
+      :{x:window.innerWidth-70,y:70,width:40,height:40});
+    const token=document.createElement('span');
+    token.className='uptaco-bag-flight-token'+(removing?' uptaco-bag-flight-token--remove':'');
+    token.textContent=removing?'−':event.kind==='increase'?'+':'U';
+    token.setAttribute('aria-hidden','true');
+    token.style.left=`${from.x+from.width/2-22}px`;
+    token.style.top=`${from.y+from.height/2-22}px`;
+    token.style.pointerEvents='none';
+    document.body.appendChild(token);
+    let disposed=false;
+    let kill=()=>{token.remove();active.current.delete(kill);};
+    active.current.add(kill);
+    import('kinetrell/web/gsap').then(({createGsapTimeline})=>{
+      if(disposed||!token.isConnected)return;
+      const plan=compileMotion(bagFlightDefinition(event,from,target));
+      const timeline=createGsapTimeline(plan,{token},{paused:true});
+      const previousKill=kill;
+      kill=()=>{timeline.kill();token.remove();active.current.delete(kill);active.current.delete(previousKill);};
+      active.current.delete(previousKill);active.current.add(kill);
+      timeline.eventCallback('onComplete',kill);
+      timeline.play();
+    }).catch(()=>kill());
+    // Do not cancel a previous token on subsequent events; rapid taps overlap
+    // with independent Kinetrell tracks. Unmount cleanup below handles all.
+    return ()=>{disposed=true;};
+  },[event?.sequence]);
+  useEffect(()=>()=>{
+    for(const remove of active.current)remove();
+    active.current.clear();
+  },[]);
+  return null;
+}
