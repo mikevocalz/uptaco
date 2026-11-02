@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+      - name: Semantic feature UI guard
+        run: node tooling/check-semantic-ui.mjs
       - name: Navigation / ordering / capability contracts (no credentials)
         run: >
           node --experimental-strip-types --test

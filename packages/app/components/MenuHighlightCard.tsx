@@ -6,6 +6,6 @@ export function MenuHighlightCard({item,index}:{item:MenuHighlight;index:number}
     <Page className="menu-card-top"><Text>{item.kicker}</Text><Text>0{index+1}</Text></Page>
     <Heading level={3}>{item.name}</Heading>
     <Paragraph>{item.description}</Paragraph>
-    <Link className="menu-card-link" href={`/menu/${item.slug}`}>Explore this item <span aria-hidden="true">↗</Text></Link>
+    <Link className="menu-card-link" href={`/menu/${item.slug}`}>Explore this item <Text aria-hidden="true">↗</Text></Link>
   </Article>;
 }
