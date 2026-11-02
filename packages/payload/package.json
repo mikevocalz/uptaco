@@ -1,0 +1,13 @@
+{
+  "name": "@uptaco/payload",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./collections": "./src/collections.ts" },
+  "dependencies": {
+    "payload": "4.0.0-beta.6",
+    "@payloadcms/db-postgres": "4.0.0-beta.6",
+    "@payloadcms/ui": "4.0.0-beta.6"
+  },
+  "engines": { "node": ">=24.15" }
+}
