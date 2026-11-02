@@ -6,7 +6,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const roots=['packages/app/screens','packages/app/components'];
-const invalid=/<\/?(?:a|article|aside|button|div|footer|form|h[1-6]|header|img|input|label|main|nav|p|section|span|textarea|ul|li|svg|br)\b/gi;
+const invalid=/<\/?(?:a|article|aside|button|div|footer|form|h[1-6]|header|img|input|label|main|nav|p|section|span|textarea|ul|li|svg|br)\b/g;
 const findings=[];
 async function walk(root) {
   const entries=await readdir(root,{withFileTypes:true});
