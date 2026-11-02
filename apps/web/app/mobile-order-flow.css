@@ -4,6 +4,13 @@
  */
 .mobile-order-entry{display:none}
 @media(max-width:599px){
+  /* Opaque mobile header keeps large page headings from ghosting through
+     the bar while scrolling. The bottom tabs remain independently fixed. */
+  .site-header{
+    background:var(--u-cream);
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
   /* The old home checkout panel hung behind the bottom navigation and
      duplicated the Harlem pill in the header. Remove it from the phone layout. */
   .dock-bridge{display:none}
