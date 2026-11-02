@@ -74,6 +74,7 @@ export const SelectBase = (
 export type PressBaseProps = React.ComponentProps<typeof Pressable> & {
   /** Web-only; accepted here so one JSX tree serves both forks. */
   onKeyDown?: (event: unknown) => void;
+  'aria-pressed'?: boolean;
 };
 
 export const PressBase = ({ role, onKeyDown: _onKeyDown, ...props }: PressBaseProps) => (

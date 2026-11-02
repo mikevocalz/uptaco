@@ -4,14 +4,24 @@
   "private": true,
   "main": "./index.ts",
   "types": "./index.ts",
-  "exports": {".":"./index.ts","./*":"./*"},
+  "exports": {
+    ".": "./index.ts",
+    "./*": "./*"
+  },
   "dependencies": {
     "@acme/ui": "workspace:*",
     "@uptaco/experience": "workspace:*",
     "@uptaco/commerce": "workspace:*",
     "react": "catalog:",
     "solito": "catalog:",
-    "zustand": "catalog:"
+    "zustand": "catalog:",
+    "next": "catalog:"
   },
-  "devDependencies": {"@types/react":"catalog:","typescript":"catalog:"}
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test navigation/contracts.test.mjs"
+  }
 }

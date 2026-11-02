@@ -8,6 +8,6 @@ export function OrderLink({compact=false}:{compact?:boolean}) {
   const order=selectCheckout(location,'pickup',null);
   return <SemanticLink className={compact?'header-order':'cta cta--orange'} href={order.href}
     target="_blank" rel="noopener noreferrer" aria-label={`Order pickup at Uptaco ${location} through Square`}>
-    {compact?'Order pickup':'Order pickup'} <span aria-hidden="true">↗</Text>
+    {compact?'Order pickup':'Order pickup'} <Text aria-hidden="true">↗</Text>
   </SemanticLink>;
 }

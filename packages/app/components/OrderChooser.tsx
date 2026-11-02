@@ -20,14 +20,14 @@ export function OrderChooser({id}: {id?:string}) {
     <Page className="order-dock-controls">
       <Fieldset className="choice-fieldset"><Legend>Uptaco location</Legend>
         <Page className="choice-pair">
-          <Button role="radio" aria-checked={location==='harlem'} className={location==='harlem'?'choice active':'choice'} onPress={()=>chooseLocation('harlem')}>Harlem</Button>
-          <Button role="radio" aria-checked={location==='midtown'} className={location==='midtown'?'choice active':'choice'} onPress={()=>chooseLocation('midtown')}>Midtown</Button>
+          <Button aria-pressed={location==='harlem'} className={location==='harlem'?'choice active':'choice'} onPress={()=>chooseLocation('harlem')}>Harlem</Button>
+          <Button aria-pressed={location==='midtown'} className={location==='midtown'?'choice active':'choice'} onPress={()=>chooseLocation('midtown')}>Midtown</Button>
         </Page>
       </Fieldset>
       <Fieldset className="choice-fieldset"><Legend>Fulfillment method</Legend>
         <Page className="choice-pair">
-          <Button role="radio" aria-checked={fulfillment==='pickup'} className={fulfillment==='pickup'?'choice active':'choice'} onPress={()=>chooseFulfillment('pickup')}>Pickup</Button>
-          <Button role="radio" aria-checked={fulfillment==='delivery'} className={fulfillment==='delivery'?'choice active':'choice'} onPress={()=>chooseFulfillment('delivery')}>Delivery</Button>
+          <Button aria-pressed={fulfillment==='pickup'} className={fulfillment==='pickup'?'choice active':'choice'} onPress={()=>chooseFulfillment('pickup')}>Pickup</Button>
+          <Button aria-pressed={fulfillment==='delivery'} className={fulfillment==='delivery'?'choice active':'choice'} onPress={()=>chooseFulfillment('delivery')}>Delivery</Button>
         </Page>
       </Fieldset>
       <Page className="order-dock-action">

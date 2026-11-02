@@ -300,3 +300,66 @@ body.uptaco-site{margin:0;color:var(--u-ink);background:var(--u-cream);font-fami
 @media(forced-colors:active){
   .cta,.header-order,.choice.active,.order-dock,.menu-card,.location-teaser{forced-color-adjust:auto;border:2px solid ButtonText;box-shadow:none}
 }
+
+/* Navigation system: web top header + compact fixed bottom tabs.
+ * This is NOT the native right rail for foldable/tablet/headset hardware.
+ */
+.header-location{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:10px;border:1px solid var(--u-ink);font-size:12px;font-weight:850;white-space:nowrap}
+.header-location:hover{background:var(--u-white)}
+.header-explore{display:none;text-decoration:underline;text-underline-offset:4px;font-weight:800}
+.site-tabbar{display:none}
+.interior-hero--order{background:var(--u-orange)}
+.interior-hero--more{background:var(--u-lilac)}
+.order-entry-content{max-width:1320px;margin:0 auto;padding:80px clamp(18px,4vw,64px)}
+.order-entry-note{display:flex;flex-direction:column;gap:18px;margin:55px auto 0;padding:25px;border-left:4px solid var(--u-orange);max-width:800px}
+.order-entry-note h2{font-size:clamp(28px,3vw,48px)}
+.order-entry-note p{max-width:660px;font-size:17px}
+.order-entry-note .text-action{align-self:start}
+.more-directory{max-width:1400px;margin:0 auto;padding:76px clamp(18px,5vw,90px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:50px}
+.more-group h2{font-size:clamp(32px,4vw,56px);margin-bottom:25px}
+.more-link-list{display:flex;flex-direction:column;border-top:2px solid var(--u-ink)}
+.more-link{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px;border-bottom:1px solid var(--u-line)}
+.more-link:hover{background:var(--u-lilac);padding-left:10px}
+.more-link>div{display:flex;flex-direction:column;align-items:start;gap:6px}
+.more-link-title{display:block;font-size:19px;font-weight:900}
+.more-link-description{display:block;font-size:13px;color:var(--u-muted)}
+.more-link-arrow{font-size:26px}
+@media(min-width:600px) and (max-width:839px){
+  .header-explore{display:inline-flex}
+  .header-inner{gap:12px}
+}
+@media(max-width:599px){
+  body.uptaco-site{padding-bottom:calc(81px + env(safe-area-inset-bottom,0px))}
+  .header-explore,.header-order{display:none!important}
+  .header-location{margin-left:auto}
+  .site-tabbar{
+    position:fixed;bottom:0;left:0;right:0;z-index:130;
+    padding:7px 8px calc(7px + env(safe-area-inset-bottom,0px));
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;
+    min-height:76px;background:var(--u-lilac);border-top:2px solid var(--u-ink);
+    box-shadow:0 -3px 16px rgba(23,18,27,.09);
+  }
+  .site-tabbar-item{
+    position:relative;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:5px;min-width:0;min-height:54px;
+    color:var(--u-ink);font-size:10px;font-weight:850;text-align:center;
+    border-radius:7px;
+  }
+  .site-tabbar-item>span{white-space:nowrap}
+  .site-tabbar-item--active:not(.site-tabbar-item--order){
+    background:#E5C8ED;
+    box-shadow:inset 0 -3px 0 var(--u-ink);
+  }
+  .site-tabbar-item--order{
+    background:var(--u-orange);border:2px solid var(--u-ink);
+    box-shadow:3px 3px 0 var(--u-ink);font-weight:950;
+    margin-top:-13px;min-height:61px;
+  }
+  .site-tabbar-item--order.site-tabbar-item--active{box-shadow:inset 0 0 0 2px var(--u-cream),3px 3px 0 var(--u-ink)}
+  .more-directory{grid-template-columns:1fr;gap:44px;padding:60px 20px}
+  .more-group h2{font-size:35px}
+  .order-entry-content{padding:60px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .more-link,.site-tabbar-item,.header-location{transition:none!important}
+}

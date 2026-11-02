@@ -76,6 +76,7 @@ export interface PressBaseProps extends P {
   'aria-label'?: string;
   'aria-disabled'?: boolean;
   'aria-checked'?: boolean;
+  'aria-pressed'?: boolean;
   'aria-hidden'?: boolean;
   accessibilityLabel?: string;
   accessibilityState?: { checked?: boolean; disabled?: boolean; selected?: boolean };

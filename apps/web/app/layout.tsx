@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SiteHeader } from '@acme/app/components/SiteHeader';
 import { SiteFooter } from '@acme/app/components/SiteFooter';
+import { MobileTabBar } from '@acme/app/components/MobileTabBar.web';
+import { Link as SemanticLink } from '@acme/ui/html';
 
 export const metadata: Metadata = {
   title: {default: 'Uptaco | Breakfast tacos in NYC', template: '%s | Uptaco'},
@@ -15,10 +17,11 @@ export default function RootLayout({children}:{children:React.ReactNode}) {
   return (
     <html lang="en">
       <body className="uptaco-site">
-        <a className="skip-link" href="#main-content">Skip to content</a>
+        <SemanticLink className="skip-link" href="#main-content">Skip to content</SemanticLink>
         <SiteHeader />
         {children}
         <SiteFooter />
+        <MobileTabBar />
       </body>
     </html>
   );

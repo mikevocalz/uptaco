@@ -15,6 +15,10 @@
     "./media": {
       "react-native": "./media/BrandImage.native.tsx",
       "default": "./media/BrandImage.web.tsx"
+    },
+    "./icons": {
+      "react-native": "./icons.native.tsx",
+      "default": "./icons.web.tsx"
     }
   },
   "dependencies": {
@@ -32,7 +36,9 @@
     "react-native-worklets": "catalog:",
     "react-native": "catalog:",
     "solito": "catalog:",
-    "uniwind": "catalog:"
+    "uniwind": "catalog:",
+    "lucide-react": "catalog:",
+    "lucide-react-native": "catalog:"
   },
   "peerDependencies": {
     "react": "^19.3.0",
