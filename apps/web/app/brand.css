@@ -1,5 +1,32 @@
-/* Official Uptaco sculptural wordmark from the existing Uptaco site. */
-.brand-logo{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;border:2px solid var(--u-ink);width:64px;height:64px;padding:5px;box-shadow:4px 4px 0 var(--u-ink);overflow:hidden;transition:transform 160ms var(--u-ease)}
-.brand-logo:hover{transform:rotate(-3deg)}
-.brand-logo-image{width:100%!important;height:100%!important;object-fit:contain}
-@media(max-width:599px){.brand-logo{width:45px;height:45px;padding:3px;box-shadow:2px 2px 0 var(--u-ink)}}
+/* Uptaco's own gooey, sculptural wordmark is the logo—not a badge.
+ * No tile, hard outline, background, offset shadow, or enclosing frame.
+ * Multiplication lets a white-backed original sit naturally on pale surfaces
+ * until Uptaco supplies a transparent master asset. */
+.brand-logo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:78px;
+  height:78px;
+  min-width:78px;
+  background:transparent;
+  border:0;
+  padding:0;
+  box-shadow:none;
+  overflow:visible;
+  border-radius:0;
+  transition:transform .35s cubic-bezier(.18,.82,.28,1);
+}
+.brand-logo:hover{transform:rotate(-4deg) scale(1.035)}
+.brand-logo-image{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain;
+  mix-blend-mode:multiply;
+}
+@media(max-width:599px){
+  .brand-logo{width:58px;height:58px;min-width:58px;padding:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .brand-logo,.brand-logo:hover{transition:none;transform:none}
+}

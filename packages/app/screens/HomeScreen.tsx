@@ -16,7 +16,7 @@ export function HomeScreen(){
         <Text className="hero-serial">EST. 2021 / MADE TO GET UP FOR</Text>
       </Page>
       <KinetrellSurface definition={heroEntry} className="hero-display">
-        <Heading level={1} className="hero-title">UP FOR{'\n'}BREAKFAST?</Heading>
+        <Heading level={1} className="hero-title">Up for{'\n'}breakfast?</Heading>
       </KinetrellSurface>
       <Figure className="hero-photo">
         <BrandImage src={UPTACO_MEDIA.heroBec} alt="Uptaco breakfast taco photographed for the restaurant"
@@ -24,10 +24,11 @@ export function HomeScreen(){
         <Figcaption className="photo-stamp">HAND-PRESSED EVERY MORNING</Figcaption>
       </Figure>
       <Page className="hero-lower">
-        <Paragraph>Big breakfast energy.{'\n'}Made for your New York morning.</Paragraph>
-        <Text className="hero-arrow" aria-hidden={true}>↓</Text>
+        <Paragraph>Hand-pressed breakfast tacos, made for the city that never sleeps in.</Paragraph>
+        <Link href="/menu" className="hero-browse">Meet the menu <Text aria-hidden={true}>↗</Text></Link>
       </Page>
       <Page className="hero-pattern" aria-hidden={true}/>
+      <Page className="hero-soft-sticker" aria-hidden={true}><Text>Made fresh.</Text><Text>Made Uptaco.</Text></Page>
     </Section>
 
     <Page className="dock-bridge"><OrderChooser id="order"/></Page>
@@ -36,7 +37,7 @@ export function HomeScreen(){
       <Page className="chapter-heading">
         <Page>
           <Text className="chapter-index">WHAT'S GOOD IN THE MORNING</Text>
-          <Heading level={2}>Not a{'\n'}regular breakfast.</Heading>
+          <Heading level={2}>Your morning{'\n'}looks good.</Heading>
         </Page>
         <Link href="/menu" className="text-action">Explore the menu <Text aria-hidden={true}>↗</Text></Link>
       </Page>
@@ -48,7 +49,7 @@ export function HomeScreen(){
 
     <Section className="story-band">
       <Text className="story-band-label">IT STARTS WITH THE TORTILLA</Text>
-      <Heading level={2}>BREAKFAST.{'\n'}DONE RIGHT.{'\n'}DONE UP.</Heading>
+      <Heading level={2}>A little{'\n'}different.{'\n'}A lot better.</Heading>
       <Page className="story-band-detail">
         <Paragraph>Fresh food for the city that gets moving early. Tacos, burritos, coffee and a whole lot of good mornings.</Paragraph>
         <Link href="/story" className="text-action text-action--light">Meet Uptaco <Text aria-hidden={true}>↗</Text></Link>
@@ -76,7 +77,7 @@ export function HomeScreen(){
     <Section className="catering-chapter">
       <Page className="catering-stage">
         <Text className="chapter-index">THE WHOLE TEAM GETS FED</Text>
-        <Heading level={2}>BRING{'\n'}THE GOOD{'\n'}MORNING.</Heading>
+        <Heading level={2}>Good mornings{'\n'}are better{'\n'}together.</Heading>
         <Paragraph>Team breakfast, big meetings, celebrations. There's a tray for that.</Paragraph>
         <Link href="/catering" className="cta cta--orange">Explore catering <Text aria-hidden={true}>↗</Text></Link>
       </Page>
