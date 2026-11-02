@@ -6,7 +6,10 @@
   "types": "./index.ts",
   "exports": {
     ".": "./index.ts",
-    "./html": "./html/index.tsx",
+    "./html": {
+      "react-native": "./html/index.tsx",
+      "default": "./html/index.web.tsx"
+    },
     "./adaptive": "./adaptive/index.ts",
     "./motion": {
       "react-native": "./motion/kinetrell.native.tsx",

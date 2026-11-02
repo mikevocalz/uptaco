@@ -1,3 +1,3 @@
-import { FutureFeatureScreen } from '@acme/app/screens/FutureFeatureScreen';
-export const metadata = {title:'Gift Cards'};
-export default function Gifts(){return <FutureFeatureScreen feature="gifts"/>;}
+import { GiftsScreen } from '@acme/app/screens/GiftsScreen';
+export const metadata={title:'Gift Uptaco',description:'The Uptaco digital gift card experience.'};
+export default function Gifts(){return <GiftsScreen/>;}

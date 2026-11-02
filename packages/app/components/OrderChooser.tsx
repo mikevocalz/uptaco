@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { useEffect } from 'react';
 import { Article, Page, Fieldset, Legend, Button, Text, Paragraph } from '@acme/ui/html';
 import { selectCheckout } from '@uptaco/experience/capabilities';
@@ -43,7 +43,7 @@ export function OrderChooser({id}: {id?:string}) {
       </Fieldset>
       <Page className="order-dock-action">
         <Link className="cta cta--black" href={route.href}>
-          {route.label} <Text aria-hidden="true">→</Text>
+          {route.label} <Text aria-hidden={true}>→</Text>
         </Link>
       </Page>
     </Page>

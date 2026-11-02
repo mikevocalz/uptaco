@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Page, Heading, Paragraph, Text, Article } from '@acme/ui/html';
 export function CafePartnersScreen(){
   return <Main id="main-content" className="interior-page">
@@ -6,7 +6,7 @@ export function CafePartnersScreen(){
       <Text className="page-kicker">HEY, CAFÉ OWNERS</Text>
       <Heading level={1}>YOUR{'\n'}EXTENDED{'\n'}KITCHEN.</Heading>
       <Paragraph>Chef-quality food, ready for your counter. Partner with Uptaco directly through this website.</Paragraph>
-      <Link className="cta cta--orange" href="/cafe-partners/apply">Explore a partnership <Text aria-hidden="true">→</Text></Link>
+      <Link className="cta cta--orange" href="/cafe-partners/apply">Explore a partnership <Text aria-hidden={true}>→</Text></Link>
     </Section>
     <Section className="chapter">
       <Page className="chapter-heading"><Heading level={2}>Built for cafés{'\n'}that care.</Heading>
@@ -19,7 +19,7 @@ export function CafePartnersScreen(){
     </Section>
     <Section className="partner-chapter"><Page><Text className="chapter-index">LET'S TALK FOOD</Text><Heading level={2}>We'd love to meet.</Heading></Page>
       <Page><Paragraph>Partner enrollment, catalog and invoices will remain inside Uptaco, with separate wholesale account permissions.</Paragraph>
-        <Link className="text-action" href="/cafe-partners/apply">Learn about applying <Text aria-hidden="true">→</Text></Link></Page>
+        <Link className="text-action" href="/cafe-partners/apply">Learn about applying <Text aria-hidden={true}>→</Text></Link></Page>
     </Section>
   </Main>;
 }

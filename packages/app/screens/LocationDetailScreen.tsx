@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Page, Heading, Paragraph, Text, Figure } from '@acme/ui/html';
 import { BrandImage } from '@acme/ui/media';
 import { UPTACO_LOCATIONS, UPTACO_MEDIA } from '../data/brand';
@@ -15,8 +15,8 @@ export function LocationDetailScreen({location}:{location:'harlem'|'midtown'}){
       <Page className="location-detail-actions">
         <Heading level={2}>Come through.</Heading>
         <Paragraph>Enjoy Uptaco at {data.fullAddress}. Choose this location and discover the menu without leaving the Uptaco website. Opening hours and checkout availability must be verified before publishing.</Paragraph>
-        <Link className="cta cta--orange" href={`/order?location=${location}`}>Explore {data.label} ordering <Text aria-hidden="true">→</Text></Link>
-        <Link href="/menu" className="text-action">Browse menu highlights <Text aria-hidden="true">→</Text></Link>
+        <Link className="cta cta--orange" href={`/order?location=${location}`}>Explore {data.label} ordering <Text aria-hidden={true}>→</Text></Link>
+        <Link href="/menu" className="text-action">Browse menu highlights <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
   </Main>;

@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Page, Article, Heading, Paragraph, Text, Button } from '@acme/ui/html';
 import { bagCount } from '@uptaco/commerce/bag';
 import { captureBagMotionOrigin, captureBagRemoval } from '@acme/ui/bag-motion';
@@ -30,15 +30,15 @@ export function BagScreen(){
           <Paragraph>{count?'Adjust your items before checkout.':'Browse Uptaco’s menu and build your morning.'}</Paragraph>
         </Page>
         {lines.length===0
-          ? <Page className="bag-empty"><Text className="bag-empty-mark" aria-hidden="true">U.</Text>
+          ? <Page className="bag-empty"><Text className="bag-empty-mark" aria-hidden={true}>U.</Text>
               <Paragraph>Your bag is empty. Good mornings start with a taco.</Paragraph>
-              <Link href="/menu" className="cta cta--orange">Explore the menu <Text aria-hidden="true">→</Text></Link>
+              <Link href="/menu" className="cta cta--orange">Explore the menu <Text aria-hidden={true}>→</Text></Link>
             </Page>
           : <Page className="bag-lines">
               {lines.map(line=>{
                 const rowId=`bag-row-${encodeURIComponent(line.key)}`;
                 return <Article key={line.key} id={rowId} className="bag-row">
-                  <Page className="bag-row-stamp" aria-hidden="true"><Text>U</Text></Page>
+                  <Page className="bag-row-stamp" aria-hidden={true}><Text>U</Text></Page>
                   <Page className="bag-row-content">
                     <Text className="bag-row-category">{line.category.toUpperCase()}</Text>
                     <Heading level={3}>{line.name}</Heading>
@@ -53,7 +53,7 @@ export function BagScreen(){
                       </Page>
                       <Button className="bag-remove" aria-label={`Remove ${line.name} from bag`}
                         onPress={()=>remove(location,line.key,captureBagRemoval(rowId))}>
-                        Remove <Text aria-hidden="true">↗</Text>
+                        Remove <Text aria-hidden={true}>↗</Text>
                       </Button>
                     </Page>
                   </Page>
@@ -78,7 +78,7 @@ export function BagScreen(){
         <Paragraph className="bag-disclosure">These are preview bag items. No order has been sent or charged. Live availability, modifiers, taxes and delivery fees must be verified by Uptaco’s server before payment.</Paragraph>
         <Button disabled className="cta cta--black bag-checkout-disabled"
           aria-label="Checkout unavailable until Uptaco live merchant integration is connected">Checkout unavailable</Button>
-        <Link href="/menu" className="text-action">Keep exploring <Text aria-hidden="true">→</Text></Link>
+        <Link href="/menu" className="text-action">Keep exploring <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
   </Main>;

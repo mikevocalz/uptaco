@@ -1,3 +1,3 @@
-import { FutureFeatureScreen } from '@acme/app/screens/FutureFeatureScreen';
-export const metadata = {title:'Help'};
-export default function Help(){return <FutureFeatureScreen feature="help"/>;}
+import { HelpScreen } from '@acme/app/screens/HelpScreen';
+export const metadata={title:'Help',description:'Uptaco help for ordering, locations, catering, food and accounts.'};
+export default function HelpPage(){return <HelpScreen/>;}

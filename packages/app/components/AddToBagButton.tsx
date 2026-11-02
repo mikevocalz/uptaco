@@ -18,7 +18,7 @@ export function AddToBagButton({
   return <Button id={id} className={variant==='detail'?'add-to-bag add-to-bag--detail':'add-to-bag'}
     accessibilityLabel={`Add ${name} to your ${location} bag`}
     onPress={()=>add(location,{productId,name,category},captureBagMotionOrigin(id))}>
-    <Text aria-hidden="true" className="add-to-bag-symbol">+</Text>
+    <Text aria-hidden={true} className="add-to-bag-symbol">+</Text>
     <Text>Add to bag</Text>
   </Button>;
 }

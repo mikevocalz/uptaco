@@ -15,7 +15,8 @@
     "react": "catalog:",
     "solito": "catalog:",
     "zustand": "catalog:",
-    "next": "catalog:"
+    "next": "catalog:",
+    "kinetrell": "catalog:"
   },
   "devDependencies": {
     "@types/react": "catalog:",

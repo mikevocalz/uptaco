@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Heading, Paragraph, Text, Page } from '@acme/ui/html';
 import { OrderChooser } from '../components/OrderChooser';
 export function OrderEntryScreen(){
@@ -13,7 +13,7 @@ export function OrderEntryScreen(){
       <Page className="order-entry-note">
         <Heading level={2}>Always Uptaco.</Heading>
         <Paragraph>The menu, bag, checkout, confirmations and order tracking will all run here. Live ordering is disabled until the merchant integration is configured and verified; this site never redirects customers to another checkout.</Paragraph>
-        <Link href="/menu" className="text-action">Explore the menu <Text aria-hidden="true">→</Text></Link>
+        <Link href="/menu" className="text-action">Explore the menu <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
   </Main>;

@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Page, Section, Heading, Paragraph, Nav, Text } from '@acme/ui/html';
 import { OrderChooser } from '../components/OrderChooser';
 
@@ -32,7 +32,7 @@ export function MoreScreen(){
           {group.links.map(item=><Link href={item.href} key={item.href} className="more-link">
             <Page><Text className="more-link-title">{item.label}</Text>
               <Text className="more-link-description">{item.description}</Text></Page>
-            <Text aria-hidden="true" className="more-link-arrow">↗</Text>
+            <Text aria-hidden={true} className="more-link-arrow">↗</Text>
           </Link>)}
         </Nav>
       </Page>)}

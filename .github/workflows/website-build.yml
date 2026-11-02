@@ -1,4 +1,4 @@
-name: Uptaco website build verification
+name: Uptaco website build + visual screen evidence
 on:
   pull_request:
     paths:
@@ -10,7 +10,7 @@ on:
 jobs:
   web:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,9 +19,26 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: '12.8.1'
-      - name: Install exact catalog versions (review lockfile before merge)
+      - name: Install exact catalog versions
         run: pnpm install --no-frozen-lockfile
       - name: Typecheck
         run: pnpm --filter web typecheck
       - name: Build website
         run: pnpm --filter web build
+      - name: Install Chromium for screen captures
+        run: pnpm --dir apps/web exec playwright install --with-deps chromium
+      - name: Capture mobile and desktop pages
+        run: |
+          (cd apps/web && pnpm exec next start --port 3000 >/tmp/uptaco-next.log 2>&1) &
+          for i in $(seq 1 45); do
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then break; fi
+            sleep 2
+          done
+          curl --fail --silent http://127.0.0.1:3000/ >/dev/null
+          pnpm --dir apps/web test:visual
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: uptaco-responsive-screens
+          path: apps/web/visual-screenshots/
+          retention-days: 14

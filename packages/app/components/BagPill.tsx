@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Page, Text } from '@acme/ui/html';
 import { KinetrellSurface } from '@acme/ui/motion';
 import { bagButtonPulse } from '@acme/ui/bag-motion';
@@ -17,7 +17,7 @@ export function BagPill({variant}:{variant:'header'|'mobile'}){
     data-uptaco-bag-target="true"
     aria-label={`View your ${location} bag, ${count} item${count===1?'':'s'}`}>
     <Page className="bag-pill-title">
-      <Text className="bag-pill-icon" aria-hidden="true">▣</Text>
+      <Text className="bag-pill-icon" aria-hidden={true}>▣</Text>
       <Text>Your bag</Text>
     </Page>
     <KinetrellSurface key={motionId} definition={bagButtonPulse} className="bag-pill-count">

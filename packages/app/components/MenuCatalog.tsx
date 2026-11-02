@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Page, Button, Article, Heading, Paragraph, Text } from '@acme/ui/html';
 import { MENU_HIGHLIGHTS } from '../data/menu';
 import { useUptacoSite, type MenuCategory } from '../store/site.store';
@@ -20,7 +20,7 @@ export function MenuCatalog(){
         {CATEGORIES.map(option=><Button key={option.key} aria-pressed={category===option.key}
           className={category===option.key?'menu-category active':'menu-category'}
           onPress={()=>change(option.key as MenuCategory)}>
-          {option.label}<Text aria-hidden="true">↗</Text>
+          {option.label}<Text aria-hidden={true}>↗</Text>
         </Button>)}
       </Page>
     </Page>
@@ -33,7 +33,7 @@ export function MenuCatalog(){
             <Heading level={3}>{item.name}</Heading>
             <Paragraph>{item.description}</Paragraph>
             <Page className="menu-item-actions">
-              <Link className="menu-card-link" href={`/menu/${item.slug}`}>Product details <Text aria-hidden="true">→</Text></Link>
+              <Link className="menu-card-link" href={`/menu/${item.slug}`}>Product details <Text aria-hidden={true}>→</Text></Link>
               <AddToBagButton productId={item.slug} name={item.name} category={item.category}/>
             </Page>
           </Page>
@@ -44,7 +44,7 @@ export function MenuCatalog(){
       <Text className="menu-pane-label">MAKE IT YOURS</Text>
       <Heading level={3}>Your morning.{'\n'}Your bag.</Heading>
       <Paragraph>Add favorites, adjust quantities or remove anything here. No offsite ordering. Checkout is enabled once Uptaco’s Square merchant connection is ready.</Paragraph>
-      <Link className="cta cta--black" href="/bag">View your Uptaco bag <Text aria-hidden="true">→</Text></Link>
+      <Link className="cta cta--black" href="/bag">View your Uptaco bag <Text aria-hidden={true}>→</Text></Link>
     </Page>
   </Page>;
 }

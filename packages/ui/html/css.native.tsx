@@ -14,7 +14,7 @@
 import React from 'react';
 import { withUniwind } from 'uniwind';
 
-export type CN = { className?: string };
+export type CN = React.AriaAttributes & { className?: string; id?: string; role?: string };
 
 export function css<P extends object>(
   Component: React.ComponentType<P>,
