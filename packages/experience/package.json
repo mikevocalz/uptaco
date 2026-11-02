@@ -1,0 +1,18 @@
+{
+  "name": "@uptaco/experience",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./capabilities": "./src/capabilities.ts",
+    "./routes": "./src/routes.ts",
+    "./motion": "./src/motion.ts"
+  },
+  "dependencies": {
+    "kinetrell": "https://codeload.github.com/mikevocalz/Kinetrell/tar.gz/344de51531ce050c4311d3feb70e4d596bdc8041"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/*.test.mjs"
+  },
+  "engines": {"node": ">=24.15.0"}
+}
