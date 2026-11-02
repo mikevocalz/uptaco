@@ -32,6 +32,15 @@ export function HomeScreen(){
     </Section>
 
     <Page className="dock-bridge"><OrderChooser id="order"/></Page>
+    <Page className="mobile-order-entry">
+      <Page className="mobile-order-entry__copy">
+        <Text className="mobile-order-entry__eyebrow">BREAKFAST, YOUR WAY</Text>
+        <Paragraph>Harlem or Midtown. Pickup or delivery.</Paragraph>
+      </Page>
+      <Link href="/order" className="mobile-order-entry__action" aria-label="Choose an Uptaco location and start your order">
+        Start order <Text aria-hidden={true}>→</Text>
+      </Link>
+    </Page>
 
     <Section className="chapter menu-chapter" aria-label="Explore the menu">
       <Page className="chapter-heading">
