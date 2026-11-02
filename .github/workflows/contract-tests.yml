@@ -1,9 +1,10 @@
-name: Uptaco contract tests
+name: Uptaco domain and first-party UI contracts
 on:
   pull_request:
   push:
     branches:
       - feat/spatial-solito-site-foundation
+      - feat/first-party-cart-motion
 jobs:
   contracts:
     runs-on: ubuntu-latest
@@ -18,9 +19,12 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Semantic feature UI guard
         run: node tooling/check-semantic-ui.mjs
-      - name: Navigation / ordering / capability contracts (no credentials)
+      - name: First-party routes guard
+        run: node tooling/check-first-party-routes.mjs
+      - name: Navigation / checkout gates / bag domain contracts
         run: >
           node --experimental-strip-types --test
           packages/app/navigation/contracts.test.mjs
           packages/commerce/test/order.test.mjs
+          packages/commerce/test/bag.test.mjs
           packages/experience/test/capabilities.test.mjs

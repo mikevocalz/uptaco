@@ -2,7 +2,7 @@
 import Link from 'solito/link';
 import { Main, Section, Page, Article, Heading, Paragraph, Text, Button } from '@acme/ui/html';
 import { bagCount } from '@uptaco/commerce/bag';
-import { captureBagMotionOrigin } from '@acme/ui/bag-motion';
+import { captureBagMotionOrigin, captureBagRemoval } from '@acme/ui/bag-motion';
 import { useUptacoBag } from '../store/bag.store';
 import { useUptacoSite } from '../store/site.store';
 
@@ -36,7 +36,7 @@ export function BagScreen(){
             </Page>
           : <Page className="bag-lines">
               {lines.map(line=>{
-                const rowId=`bag-row-${line.productId}`;
+                const rowId=`bag-row-${encodeURIComponent(line.key)}`;
                 return <Article key={line.key} id={rowId} className="bag-row">
                   <Page className="bag-row-stamp" aria-hidden="true">U</Page>
                   <Page className="bag-row-content">
@@ -46,13 +46,13 @@ export function BagScreen(){
                     <Page className="bag-row-actions">
                       <Page className="bag-quantity" role="group" aria-label={`Quantity for ${line.name}`}>
                         <Button aria-label={`Decrease ${line.name} quantity`} onPress={()=>
-                          decrease(location,line.key,captureBagMotionOrigin(rowId))}>−</Button>
+                          decrease(location,line.key,line.quantity===1?captureBagRemoval(rowId):captureBagMotionOrigin(rowId))}>−</Button>
                         <Text aria-label={`Quantity ${line.quantity}`}>{line.quantity}</Text>
                         <Button aria-label={`Increase ${line.name} quantity`} onPress={()=>
                           increase(location,line.key,captureBagMotionOrigin(rowId))}>+</Button>
                       </Page>
                       <Button className="bag-remove" aria-label={`Remove ${line.name} from bag`}
-                        onPress={()=>remove(location,line.key,captureBagMotionOrigin(rowId))}>
+                        onPress={()=>remove(location,line.key,captureBagRemoval(rowId))}>
                         Remove <Text aria-hidden="true">↗</Text>
                       </Button>
                     </Page>

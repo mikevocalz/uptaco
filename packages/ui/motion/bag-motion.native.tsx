@@ -13,6 +13,7 @@ export {bagButtonPulse} from './bag-definitions';
  * separate device-validated enhancement, not a fake JS viewport flyout.
  */
 export function captureBagMotionOrigin(_id:string):MotionRect|undefined{return undefined;}
+export function captureBagRemoval(_id:string):MotionRect|undefined{return undefined;}
 export function BagMotionLayer({event}:{event:BagVisualEvent|null}){
   const pulse=useMotion(bagButtonPulse,{autoplay:false,reducedMotion:'system'});
   const animatedStyle=useMotionStyle(pulse,'badge');

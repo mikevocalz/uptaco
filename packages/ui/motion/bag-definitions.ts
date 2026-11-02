@@ -38,3 +38,13 @@ export function bagFlightDefinition(event:BagVisualEvent, from:MotionRect, to:Mo
     ]
   });
 }
+
+/** The row's visual clone peels away; actual bag state changes immediately. */
+export const bagRowExitMotion=defineMotion({
+  id:'uptaco-bag-row-peel',
+  initial:{row:{opacity:1,y:0,x:0,scale:1,rotation:0}},
+  tracks:[
+    {target:'row',to:{opacity:1,y:-9,x:9,scale:1.012,rotation:1.5},durationMs:100,ease:'power2.out'},
+    {target:'row',to:{opacity:0,y:35,x:38,scale:0.94,rotation:4},atMs:100,durationMs:210,ease:'power2.in'}
+  ]
+});

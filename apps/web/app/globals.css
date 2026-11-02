@@ -513,3 +513,15 @@ body.uptaco-site{margin:0;color:var(--u-ink);background:var(--u-cream);font-fami
   .uptaco-bag-flight-token{display:none!important}
   .add-to-bag,.bag-pill{transition:none!important}
 }
+
+/* The real removed row is gone from the store immediately; a decorative,
+ * inert visual ghost peels away without retaining any interactive controls. */
+.uptaco-bag-row-ghost{
+  position:fixed!important;z-index:9998!important;
+  pointer-events:none!important;user-select:none!important;
+  overflow:hidden;isolation:isolate;
+  background:var(--u-cream);
+  border-bottom:1px solid var(--u-line);
+  box-shadow:0 12px 16px rgba(23,18,27,.11);
+}
+@media(prefers-reduced-motion:reduce){.uptaco-bag-row-ghost{display:none!important}}
