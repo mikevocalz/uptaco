@@ -1,0 +1,191 @@
+/* Uptaco mobile ordering — keep the fixed primary tabs distinct from
+ * location/fulfillment controls. The full selector belongs to /order only.
+ * Both a mobile-home CTA and a compact mobile /order screen stay first-party.
+ */
+.mobile-order-entry{display:none}
+@media(max-width:599px){
+  /* Opaque mobile header keeps large page headings from ghosting through
+     the bar while scrolling. The bottom tabs remain independently fixed. */
+  .site-header{
+    background:var(--u-cream);
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+  /* The old home checkout panel hung behind the bottom navigation and
+     duplicated the Harlem pill in the header. Remove it from the phone layout. */
+  .dock-bridge{display:none}
+  .mobile-order-entry{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+    margin:0;
+    padding:27px 20px 32px;
+    background:var(--u-cream);
+    min-width:0;
+  }
+  .mobile-order-entry__copy{display:flex;flex-direction:column;gap:5px}
+  .mobile-order-entry__eyebrow{
+    color:var(--u-violet);
+    font-family:var(--u-body);
+    font-size:11px;
+    font-weight:760;
+    letter-spacing:.08em;
+  }
+  .mobile-order-entry__copy p{
+    font-size:16px;
+    font-weight:550;
+    line-height:1.45;
+    color:var(--u-ink);
+    max-width:28ch;
+  }
+  .mobile-order-entry__action{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+    padding:17px 22px;
+    min-height:54px;
+    width:100%;
+    border-radius:999px;
+    background:var(--u-violet);
+    color:white!important;
+    font-size:14px;
+    font-weight:760;
+  }
+  .mobile-order-entry__action:active{transform:scale(.985)}
+  .mobile-order-entry__action>span{font-size:18px}
+  /* The Order tab opens a compact, normal document—not a bottom sheet
+     fighting the fixed primary bar. Controls can scroll behind *content*,
+     with a real safe-area bottom offset; the bar itself never moves. */
+  .order-entry .interior-hero{
+    padding:33px 20px 27px;
+    border-radius:0 0 30px 30px;
+    min-height:0;
+  }
+  .order-entry .interior-hero .page-kicker{font-size:11px;letter-spacing:.055em}
+  .order-entry .interior-hero h1{
+    font-size:clamp(39px,10vw,52px);
+    line-height:1.02;
+    letter-spacing:-.052em;
+    margin:13px 0 11px;
+    max-width:300px;
+  }
+  .order-entry .interior-hero p{
+    max-width:340px;
+    font-size:14px;
+    line-height:1.45;
+    margin:0;
+  }
+  .order-entry .order-entry-content{
+    max-width:100%;
+    min-width:0;
+    padding:18px 19px calc(135px + env(safe-area-inset-bottom,0px));
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    margin:0;
+  }
+  .order-entry .order-dock{
+    position:relative;
+    width:100%;
+    max-width:100%;
+    padding:10px 0 0;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    margin:0;
+    overflow:visible;
+  }
+  .order-entry .order-dock-head{
+    display:flex;
+    align-items:flex-start;
+    flex-direction:column;
+    gap:5px;
+    margin-bottom:21px;
+  }
+  .order-entry .order-dock-head p{
+    font-family:var(--u-display);
+    font-size:clamp(22px,6vw,28px);
+    font-weight:680;
+    line-height:1.15;
+  }
+  .order-entry .order-dock-controls{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    width:100%;
+    min-width:0;
+    align-items:stretch;
+  }
+  .order-entry .choice-fieldset{width:100%;min-width:0;margin:0;padding:0;border:0}
+  .order-entry .choice-fieldset legend{
+    font-size:13px;
+    font-weight:760;
+    margin:0 0 9px;
+    color:var(--u-ink);
+  }
+  .order-entry .choice-pair{
+    display:flex;
+    gap:5px;
+    padding:5px;
+    width:100%;
+    min-width:0;
+    overflow:hidden;
+    border-radius:999px;
+    background:#EFE6F4;
+  }
+  .order-entry .choice{
+    flex:1 1 0;
+    min-width:0;
+    min-height:47px;
+    padding:11px 7px;
+    border:0;
+    border-radius:999px;
+    background:transparent;
+    color:var(--u-violet);
+    font-size:14px;
+    font-weight:730;
+    box-shadow:none;
+  }
+  .order-entry .choice.active{
+    background:var(--u-violet);
+    color:#fff;
+    box-shadow:0 3px 12px rgba(77,44,95,.12);
+  }
+  .order-entry .order-dock-action{grid-column:auto;width:100%;margin:1px 0 0}
+  .order-entry .order-dock-action .cta{
+    display:flex;
+    width:100%;
+    min-height:53px;
+    padding:15px 22px;
+    border-radius:999px;
+    box-shadow:none;
+    align-items:center;
+  }
+  .order-entry .dock-disclaimer{
+    font-size:12px;
+    line-height:1.48;
+    color:var(--u-muted);
+    margin-top:15px;
+    max-width:40ch;
+  }
+  .order-entry .order-entry-note{
+    border:0;
+    border-radius:24px;
+    padding:21px 20px;
+    margin:0;
+    background:#F2E9F6;
+    gap:12px;
+  }
+  .order-entry .order-entry-note h2{
+    font-family:var(--u-display);
+    font-size:26px;
+    letter-spacing:-.035em;
+  }
+  .order-entry .order-entry-note p{font-size:13px;line-height:1.5}
+}
+@media(prefers-reduced-motion:reduce){
+  .mobile-order-entry__action:active{transform:none}
+}

@@ -37,7 +37,7 @@ export function AccountScreen({area='overview',viewer=null}:{area?:AccountArea;v
   return <Main id="main-content" className="account-screen">
     <Section className="interior-hero interior-hero--account">
       <Text className="page-kicker">PERSONAL CORNER / UPTACO</Text>
-      <Heading level={1}>{viewer?'YOUR MORNING.':'ONE MORE'}{'\n'}{viewer?'YOUR WAY.':'GOOD THING.'}</Heading>
+      <Heading level={1}>{viewer?'Your morning.':'One more'}{'\n'}{viewer?'Your way.':'good thing.'}</Heading>
       <Paragraph>{viewer? `Good morning, ${viewer.displayName||'friend'}. Your Uptaco account lives here.` : 'Your orders, favorites, and good mornings—together when customer accounts launch.'}</Paragraph>
     </Section>
     <Section className="account-shell" aria-label="Uptaco account experience">

@@ -9,6 +9,9 @@ const origin=process.env.UPTACO_TEST_ORIGIN??'http://127.0.0.1:3000';
 const dir=new URL('../visual-screenshots/',import.meta.url).pathname;
 mkdirSync(dir,{recursive:true});
 const routes=[
+  ['study-soft-rise','/design-preview/soft-rise'],
+  ['study-counter','/design-preview/counter-editorial'],
+  ['study-splash','/design-preview/morning-splash'],
   ['home','/'], ['menu','/menu'],['bec','/menu/bec-breakfast-taco'],
   ['order','/order'],['bag','/bag'],['checkout','/checkout'],
   ['account-guest','/account'],['account-orders','/account/orders'],
@@ -53,6 +56,51 @@ try{
       finally{await page.close();}
     }
     await context.close();
+  }
+  // Mobile Order tab regression: selectors stay inside /order, NOT behind
+  // the fixed bottom tabbar on Home. Confirm at two compact phone widths.
+  for (const width of [320,390]) {
+    const context=await browser.newContext({viewport:{width,height:width===320?700:844},deviceScaleFactor:1});
+    const page=await context.newPage();
+    try{
+      await page.goto(origin+'/',{waitUntil:'domcontentloaded'});
+      await page.locator('.site-tabbar').waitFor({state:'visible'});
+      if(await page.locator('.dock-bridge').isVisible())
+        throw new Error('Home must not show a location selector above the mobile tab bar');
+      await page.locator('.mobile-order-entry__action').waitFor({state:'visible'});
+      await page.locator('.site-tabbar-item--order').click();
+      await page.waitForURL('**/order');
+      await page.getByRole('group',{name:'Uptaco location'}).waitFor({state:'visible'});
+      const midtown=page.getByRole('button',{name:'Midtown'});
+      await midtown.click();
+      if(await midtown.getAttribute('aria-pressed')!=='true')
+        throw new Error('Midtown location selection did not update');
+      await page.getByRole('button',{name:'Delivery'}).click();
+      if(await page.getByRole('button',{name:'Delivery'}).getAttribute('aria-pressed')!=='true')
+        throw new Error('Delivery choice did not update');
+      const tabBar=page.locator('.site-tabbar');
+      const orderButton=page.locator('.order-entry .order-dock-action .cta');
+      await page.locator('.order-entry .order-dock-action').evaluate(el=>
+        el.scrollIntoView({block:'center',behavior:'instant'})
+      );
+      await page.waitForTimeout(100);
+      const bounds=await page.evaluate(()=>{
+        const tab=document.querySelector('.site-tabbar');
+        const button=document.querySelector('.order-entry .order-dock-action .cta');
+        if(!tab||!button) return null;
+        const a=tab.getBoundingClientRect(),b=button.getBoundingClientRect();
+        return {tabTop:a.top,buttonBottom:b.bottom,scrollWidth:document.documentElement.scrollWidth,width:document.documentElement.clientWidth};
+      });
+      if(!bounds||bounds.buttonBottom>bounds.tabTop-2)
+        throw new Error('Order action is obscured by the fixed navigation');
+      if(bounds.scrollWidth>bounds.width+2)
+        throw new Error('Mobile Order screen overflows horizontally');
+      await page.screenshot({path:join(dir,`order-selector-${width}.png`),fullPage:false,animations:'disabled'});
+      await orderButton.click();
+      await page.waitForURL('**/menu?location=midtown&fulfillment=delivery');
+      results.push({name:'mobile-order-tab',width,passed:true,bounds});
+    }catch(e){fatal.push({name:'mobile-order-tab',width,error:String(e)});}
+    finally{await context.close();}
   }
   // Run an interactive Uptaco menu → bag → remove/undo smoke check.
   const context=await browser.newContext({viewport:{width:390,height:844}});

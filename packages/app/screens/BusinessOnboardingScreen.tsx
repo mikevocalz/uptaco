@@ -36,7 +36,7 @@ export function BusinessOnboardingScreen({kind}:{kind:'catering'|'partner'}){
   return <Main id="main-content" className="business-inquiry-page">
     <Section className={catering?'interior-hero interior-hero--catering':'interior-hero interior-hero--cafe'}>
       <Text className="page-kicker">{catering?'GROUP BREAKFAST / UPTACO':'WHOLESALE / UPTACO'}</Text>
-      <Heading level={1}>{catering?'THE WHOLE\nTEAM IS UP.':'GOOD FOOD.\nGOOD PARTNERS.'}</Heading>
+      <Heading level={1}>{catering?'The whole\nteam is up.':'Good food.\nGood partners.'}</Heading>
       <Paragraph>{catering?'Tell us a little about your occasion, and we’ll plan a breakfast worth showing up for.':'Tell us about your café. Uptaco makes chef-quality food for counters with big ambitions.'}</Paragraph>
     </Section>
     <Section className="inquiry-workspace">

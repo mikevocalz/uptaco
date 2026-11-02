@@ -5,7 +5,7 @@ export function OrderEntryScreen(){
   return <Main id="main-content" className="interior-page order-entry">
     <Section className="interior-hero interior-hero--order">
       <Text className="page-kicker">YOUR BREAKFAST, YOUR CALL</Text>
-      <Heading level={1}>LET'S GET{'\n'}YOU FED.</Heading>
+      <Heading level={1}>Let's get{'\n'}you fed.</Heading>
       <Paragraph>Choose Uptaco Harlem or Midtown, pickup or delivery, and continue to the menu without leaving the site.</Paragraph>
     </Section>
     <Section className="order-entry-content">

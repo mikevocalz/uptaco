@@ -30,7 +30,9 @@
     "react-native-web": "catalog:",
     "react-native-css": "catalog:",
     "solito": "catalog:",
-    "zustand": "catalog:"
+    "zustand": "catalog:",
+    "@fontsource-variable/fredoka": "5.3.0",
+    "@fontsource-variable/bricolage-grotesque": "5.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:",
