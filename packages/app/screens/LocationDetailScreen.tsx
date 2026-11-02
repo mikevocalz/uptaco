@@ -7,8 +7,8 @@ export function LocationDetailScreen({location}:{location:'harlem'|'midtown'}){
   return <Main id="main-content" className="interior-page">
     <Section className="interior-hero interior-hero--location-detail">
       <Text className="page-kicker">UPTACO / {location.toUpperCase()}</Text>
-      <Heading level={1}>{location==='harlem'?'UPTOWN,':'MIDTOWN,'}<br/>WE'RE UP.</Heading>
-      <Paragraph>{data.address}<br/>{data.crossStreet}</Paragraph>
+      <Heading level={1}>{location==='harlem'?'UPTOWN,':'MIDTOWN,'}{'\n'}WE'RE UP.</Heading>
+      <Paragraph>{data.address}{'\n'}{data.crossStreet}</Paragraph>
     </Section>
     <Section className="location-detail-grid">
       <Figure className="location-detail-photo"><BrandImage src={UPTACO_MEDIA[location]} alt={`Uptaco ${data.label} restaurant exterior`} width={1100} height={1100}/></Figure>

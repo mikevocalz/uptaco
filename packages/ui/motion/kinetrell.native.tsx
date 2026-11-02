@@ -6,6 +6,6 @@ import type { MotionDefinition } from 'kinetrell';
 export function KinetrellSurface({definition,children}:PropsWithChildren<{definition:MotionDefinition;className?:string}>) {
   const motion=useMotion(definition,{autoplay:true,reducedMotion:'system'});
   const target=Object.keys(definition.initial)[0] ?? '';
-  if(!target) return <>{children}</>;
-  return <Animated.View style={useMotionStyle(motion,target)}>{children}</Animated.View>;
+  const animatedStyle=useMotionStyle(motion,target);
+  return <Animated.View style={animatedStyle}>{children}</Animated.View>;
 }

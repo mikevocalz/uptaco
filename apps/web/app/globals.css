@@ -28,7 +28,7 @@ body.uptaco-site{margin:0;color:var(--u-ink);background:var(--u-cream);font-fami
 .uptaco-site :where(button){cursor:pointer;font:inherit}
 .uptaco-site :where(a,button,input,textarea):focus-visible{outline:3px solid var(--u-orange);outline-offset:4px}
 .uptaco-site :where(p,h1,h2,h3,figure){margin:0}
-.uptaco-site :where(p){line-height:1.52}
+.uptaco-site :where(p){line-height:1.52}\n.uptaco-site :where(h1,h2,h3,p){white-space:pre-line}
 .uptaco-site :where(img){display:block;max-width:100%}
 .uptaco-site :where(h1,h2,h3){font-family:var(--u-display);letter-spacing:-.065em;text-wrap:balance}
 .skip-link{position:fixed;top:8px;left:8px;z-index:500;background:var(--u-white);padding:14px 20px;transform:translateY(-150%);font-weight:800}

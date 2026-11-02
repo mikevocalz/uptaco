@@ -7,7 +7,7 @@ export function SiteHeader() {
   return <Header className="site-header">
     <Page className="topline"><Text>HAND-PRESSED. CITY-READY.</Text><Text className="topline__right">HARLEM & MIDTOWN · NYC</Text></Page>
     <Page className="header-inner">
-      <Link href="/" className="wordmark" aria-label="Uptaco home">UPTACO<span className="wordmark-dot">.</span></Link>
+      <Link href="/" className="wordmark" aria-label="Uptaco home">UPTACO<span className="wordmark-dot">.</Text></Link>
       <Nav className="desktop-nav" aria-label="Main navigation">
         <Link href="/menu">The menu</Link>
         <Link href="/locations">Find Uptaco</Link>

@@ -16,7 +16,7 @@ export function HomeScreen(){
         <Text className="hero-serial">EST. 2021 / MADE TO GET UP FOR</Text>
       </Page>
       <KinetrellSurface definition={heroEntry} className="hero-display">
-        <Heading level={1} className="hero-title">UP FOR<br/>BREAKFAST?</Heading>
+        <Heading level={1} className="hero-title">UP FOR{'\n'}BREAKFAST?</Heading>
       </KinetrellSurface>
       <Figure className="hero-photo">
         <BrandImage src={UPTACO_MEDIA.heroBec} alt="Uptaco breakfast taco photographed for the restaurant"
@@ -24,7 +24,7 @@ export function HomeScreen(){
         <Figcaption className="photo-stamp">HAND-PRESSED EVERY MORNING</Figcaption>
       </Figure>
       <Page className="hero-lower">
-        <Paragraph>Big breakfast energy.<br/>Made for your New York morning.</Paragraph>
+        <Paragraph>Big breakfast energy.{'\n'}Made for your New York morning.</Paragraph>
         <Text className="hero-arrow" aria-hidden="true">↓</Text>
       </Page>
       <Page className="hero-pattern" aria-hidden="true"/>
@@ -36,7 +36,7 @@ export function HomeScreen(){
       <Page className="chapter-heading">
         <Page>
           <Text className="chapter-index">WHAT'S GOOD IN THE MORNING</Text>
-          <Heading level={2}>Not a<br/>regular breakfast.</Heading>
+          <Heading level={2}>Not a{'\n'}regular breakfast.</Heading>
         </Page>
         <Link href="/menu" className="text-action">Explore the menu <Text aria-hidden="true">↗</Text></Link>
       </Page>
@@ -48,7 +48,7 @@ export function HomeScreen(){
 
     <Section className="story-band">
       <Text className="story-band-label">IT STARTS WITH THE TORTILLA</Text>
-      <Heading level={2}>BREAKFAST.<br/>DONE RIGHT.<br/>DONE UP.</Heading>
+      <Heading level={2}>BREAKFAST.{'\n'}DONE RIGHT.{'\n'}DONE UP.</Heading>
       <Page className="story-band-detail">
         <Paragraph>Fresh food for the city that gets moving early. Tacos, burritos, coffee and a whole lot of good mornings.</Paragraph>
         <Link href="/story" className="text-action text-action--light">Meet Uptaco <Text aria-hidden="true">↗</Text></Link>
@@ -58,7 +58,7 @@ export function HomeScreen(){
 
     <Section className="chapter locations-chapter">
       <Page className="chapter-heading">
-        <Page><Text className="chapter-index">TWO PLACES TO GET UP</Text><Heading level={2}>Your corner.<br/>Your morning.</Heading></Page>
+        <Page><Text className="chapter-index">TWO PLACES TO GET UP</Text><Heading level={2}>Your corner.{'\n'}Your morning.</Heading></Page>
         <Link href="/locations" className="text-action">Both locations <Text aria-hidden="true">↗</Text></Link>
       </Page>
       <Page className="locations-grid">
@@ -76,7 +76,7 @@ export function HomeScreen(){
     <Section className="catering-chapter">
       <Page className="catering-stage">
         <Text className="chapter-index">THE WHOLE TEAM GETS FED</Text>
-        <Heading level={2}>BRING<br/>THE GOOD<br/>MORNING.</Heading>
+        <Heading level={2}>BRING{'\n'}THE GOOD{'\n'}MORNING.</Heading>
         <Paragraph>Team breakfast, big meetings, celebrations. There's a tray for that.</Paragraph>
         <Link href="/catering" className="cta cta--orange">Explore catering <Text aria-hidden="true">↗</Text></Link>
       </Page>
@@ -84,7 +84,7 @@ export function HomeScreen(){
     </Section>
 
     <Section className="partner-chapter">
-      <Page><Text className="chapter-index">A LITTLE UPTACO EVERYWHERE</Text><Heading level={2}>Good food.<br/>For good cafés.</Heading></Page>
+      <Page><Text className="chapter-index">A LITTLE UPTACO EVERYWHERE</Text><Heading level={2}>Good food.{'\n'}For good cafés.</Heading></Page>
       <Page><Paragraph>We help neighborhood cafés offer thoughtful, ready-to-serve food without adding a kitchen.</Paragraph>
         <Link href="/cafe-partners" className="text-action">Become a café partner <Text aria-hidden="true">↗</Text></Link></Page>
     </Section>
