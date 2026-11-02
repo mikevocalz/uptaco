@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Footer, Page, Heading, Paragraph, Nav, Text, Address } from '@acme/ui/html';
 export function SiteFooter(){
   return <Footer className="site-footer">

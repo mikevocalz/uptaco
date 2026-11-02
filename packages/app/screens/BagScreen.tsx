@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Page, Article, Heading, Paragraph, Text, Button } from '@acme/ui/html';
 import { bagCount } from '@uptaco/commerce/bag';
 import { captureBagMotionOrigin, captureBagRemoval } from '@acme/ui/bag-motion';

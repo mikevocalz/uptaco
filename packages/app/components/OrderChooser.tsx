@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { useEffect } from 'react';
 import { Article, Page, Fieldset, Legend, Button, Text, Paragraph } from '@acme/ui/html';
 import { selectCheckout } from '@uptaco/experience/capabilities';

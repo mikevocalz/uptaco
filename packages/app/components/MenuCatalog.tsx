@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Page, Button, Article, Heading, Paragraph, Text } from '@acme/ui/html';
 import { MENU_HIGHLIGHTS } from '../data/menu';
 import { useUptacoSite, type MenuCategory } from '../store/site.store';

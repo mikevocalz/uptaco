@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Page, Text } from '@acme/ui/html';
 import { KinetrellSurface } from '@acme/ui/motion';
 import { bagButtonPulse } from '@acme/ui/bag-motion';

@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Header, Nav, Page, Text } from '@acme/ui/html';
 import { ShellIcon } from '@acme/ui/icons';
 import { useUptacoSite } from '../store/site.store';

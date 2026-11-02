@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Article, Page, Heading, Paragraph, Text } from '@acme/ui/html';
 import { AddToBagButton } from './AddToBagButton';
 import type { MenuHighlight } from '../data/menu';

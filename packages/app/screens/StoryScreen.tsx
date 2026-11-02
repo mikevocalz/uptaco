@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Page, Heading, Paragraph, Text } from '@acme/ui/html';
 export function StoryScreen(){
  return <Main id="main-content" className="interior-page">

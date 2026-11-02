@@ -1,5 +1,5 @@
 'use client';
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { usePathname } from 'next/navigation';
 import { Nav, Text } from '@acme/ui/html';
 import { ShellIcon } from '@acme/ui/icons';

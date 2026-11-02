@@ -14,7 +14,7 @@
 import React from 'react';
 import { useCssElement } from 'react-native-css';
 
-export type CN = { className?: string };
+export type CN = React.AriaAttributes & { className?: string; id?: string; role?: string };
 
 const CLASS_NAME_TO_STYLE = { className: 'style' } as const;
 

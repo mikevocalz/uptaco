@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Heading, Paragraph, Text } from '@acme/ui/html';
 import { OrderChooser } from '../components/OrderChooser';
 const FEATURES={

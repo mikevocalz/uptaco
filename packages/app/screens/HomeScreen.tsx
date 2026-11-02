@@ -1,4 +1,4 @@
-import Link from 'solito/link';
+import { Link } from 'solito/link';
 import { Main, Section, Page, Heading, Paragraph, Text, Figure, Figcaption, Article } from '@acme/ui/html';
 import { BrandImage } from '@acme/ui/media';
 import { KinetrellSurface } from '@acme/ui/motion';
