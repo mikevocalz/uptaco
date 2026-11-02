@@ -4,18 +4,18 @@ Uptaco's **website-first** digital restaurant platform: editorial brand experien
 
 ## Status (November 2, 2026)
 
-This branch adds a **schema-and-domain foundation**, not a live website or production POS integration. It deliberately contains no API secrets, merchant credentials, fabricated menus or real customer records. The website implementation should be brought in from [Spatial Solito Starter](https://github.com/mikevocalz/Solito-NativeUI-Starter) after version/adapter compatibility checks.
+This branch contains a **site-first UI foundation plus a working preview bag**, but it is NOT a production restaurant site or payment integration. It deliberately contains no API secrets, merchant credentials, fabricated prices or real customer records. Semantic UI adapters were borrowed from [Spatial Solito Starter](https://github.com/mikevocalz/Solito-NativeUI-Starter); production validation is still required.
 
 - `packages/commerce`: cross-platform-safe, pure TypeScript order source, pickup, dispatch and loyalty contracts, including Node tests
 - `packages/payload`: Payload CMS **4.0.0-beta.6** collection schema for the restaurant admin (pending authentication wiring and migrations)
 - `docs/commerce`: provider integrations, order lifecycle, privacy, migration and verification gates
-- `docs/site`: Uptaco-specific visual direction, screen map, semantic UI and Kinetrell constraints
+- `apps/web` + `packages/app`: responsive first-party website routes, live preview bag actions and Uptaco content\n- `packages/ui/motion`: shared Kinetrell definitions, GSAP web token flights, native Reanimated feedback and reduced-motion paths\n- `docs/site`: Uptaco-specific visual direction, screen map, semantic UI and Kinetrell constraints
 
 ## Source of truth
 
 Uptaco operates Square online pickup, marketplace delivery and catering flows. Confirm the merchant account's **actual integrations and contractual API permissions** before enabling any webhook, checkout, courier request or automated menu mutation.
 
-**Do not mark this branch production-ready:** provider OAuth, Better Auth, checkout, signature verification, migrations and site/runtime test suites are not implemented yet. Keep the current ordering links available until each new path is proven.
+**Do not mark this branch production-ready:** provider OAuth, Better Auth, checkout, signature verification, migrations and site/runtime test suites are not implemented yet. **Never route customers to a provider site from Uptaco.** All consumer CTAs remain internal, while disabled checkout explicitly explains when merchant integration is not yet connected. Providers may be server-side adapters only.
 
 ## Review
 

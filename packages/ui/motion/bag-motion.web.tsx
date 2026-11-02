@@ -32,7 +32,7 @@ export function captureBagRemoval(id:string):MotionRect|undefined{
     const timeline=createGsapTimeline(plan,{row:ghost},{paused:true});
     timeline.eventCallback('onComplete',()=>{timeline.kill();ghost.remove();document.removeEventListener('visibilitychange',onVisibility);});
     timeline.play();
-  }).catch(()=>ghost.remove());
+  }).catch(()=>{ghost.remove();document.removeEventListener('visibilitychange',onVisibility);});
   // The row ghost expires even if a tab was backgrounded mid-animation.
   const onVisibility=()=>{if(document.hidden){ghost.remove();document.removeEventListener('visibilitychange',onVisibility);}};
   document.addEventListener('visibilitychange',onVisibility,{once:true});
