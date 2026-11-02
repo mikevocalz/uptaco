@@ -7,7 +7,7 @@ export function RewardsScreen(){
   return <Main id="main-content" className="rewards-page">
     <Section className="interior-hero interior-hero--rewards">
       <Text className="page-kicker">UPTACO REWARDS / YOUR EVERYDAY RITUAL</Text>
-      <Heading level={1}>GOOD{'\n'}MORNINGS.{'\n'}MORE OF THEM.</Heading>
+      <Heading level={1}>Good{'\n'}mornings.{'\n'}More of them.</Heading>
       <Paragraph>The future home for Uptaco’s own loyalty experience, with everything staying inside your account.</Paragraph>
       <Link href="/menu" className="cta cta--orange">Explore the menu <Text aria-hidden={true}>→</Text></Link>
       <Page className="rewards-brand-tile">

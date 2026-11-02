@@ -17,7 +17,7 @@ export function CheckoutScreen(){
   return <Main id="main-content" className="checkout-screen">
     <Section className="checkout-masthead">
       <Text className="page-kicker">THE UPTACO COUNTER / STEP 03</Text>
-      <Heading level={1}>JUST A{'\n'}FEW MORE BITES.</Heading>
+      <Heading level={1}>Just a{'\n'}few more bites.</Heading>
       <Paragraph>Your checkout never leaves Uptaco. The payment step is locked until secure merchant authorization is ready.</Paragraph>
       <Page className="checkout-progress" aria-label="Checkout steps">
         <Text>01 / Menu</Text><Text>02 / Bag</Text><Text className="is-current">03 / Checkout</Text><Text>04 / Ready</Text>

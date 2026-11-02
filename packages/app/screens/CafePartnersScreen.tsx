@@ -4,7 +4,7 @@ export function CafePartnersScreen(){
   return <Main id="main-content" className="interior-page">
     <Section className="interior-hero interior-hero--cafe">
       <Text className="page-kicker">HEY, CAFÉ OWNERS</Text>
-      <Heading level={1}>YOUR{'\n'}EXTENDED{'\n'}KITCHEN.</Heading>
+      <Heading level={1}>Your{'\n'}extended{'\n'}kitchen.</Heading>
       <Paragraph>Chef-quality food, ready for your counter. Partner with Uptaco directly through this website.</Paragraph>
       <Link className="cta cta--orange" href="/cafe-partners/apply">Explore a partnership <Text aria-hidden={true}>→</Text></Link>
     </Section>

@@ -4,7 +4,7 @@ export function CateringScreen(){
   return <Main id="main-content" className="interior-page">
     <Section className="interior-hero interior-hero--catering">
       <Text className="page-kicker">BIG MORNING ENERGY</Text>
-      <Heading level={1}>FEED{'\n'}THE WHOLE{'\n'}ROOM.</Heading>
+      <Heading level={1}>Feed{'\n'}the whole{'\n'}room.</Heading>
       <Paragraph>Breakfast meetings, gatherings and everything in between—planned and ordered entirely through Uptaco.</Paragraph>
       <Link className="cta cta--orange" href="/catering/quote">Plan your Uptaco catering <Text aria-hidden={true}>→</Text></Link>
     </Section>

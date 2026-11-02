@@ -20,7 +20,7 @@ export function BagScreen(){
   return <Main id="main-content" className="bag-screen">
     <Section className="interior-hero interior-hero--bag">
       <Text className="page-kicker">YOUR UPTACO BAG</Text>
-      <Heading level={1}>YOUR{'\n'}GOOD STUFF.</Heading>
+      <Heading level={1}>Your{'\n'}good stuff.</Heading>
       <Paragraph>{location==='harlem'?'Harlem':'Midtown'} · {count} item{count===1?'':'s'}</Paragraph>
     </Section>
     <Section className="bag-workspace" aria-label="Your bag">

@@ -10,7 +10,7 @@ export function GiftsScreen(){
   return <Main id="main-content" className="gifts-page">
     <Section className="interior-hero interior-hero--gifts">
       <Text className="page-kicker">SHARE THE UPTACO MORNING</Text>
-      <Heading level={1}>GIVE THE{'\n'}GOOD STUFF.</Heading>
+      <Heading level={1}>Give the{'\n'}good stuff.</Heading>
       <Paragraph>Breakfast makes a good gift. The entire gifting experience will live right here, from choosing a card to sending it.</Paragraph>
     </Section>
     <Section className="gifts-workspace">

@@ -6,7 +6,7 @@ export function LocationsScreen(){
   return <Main id="main-content" className="interior-page">
     <Section className="interior-hero interior-hero--locations">
       <Text className="page-kicker">NYC, WE'RE HERE</Text>
-      <Heading level={1}>BREAKFAST{'\n'}HAS AN ADDRESS.</Heading>
+      <Heading level={1}>Breakfast{'\n'}has an address.</Heading>
       <Paragraph>Find us in Harlem and Midtown. Check live store details before heading out.</Paragraph>
     </Section>
     <Section className="location-list">
