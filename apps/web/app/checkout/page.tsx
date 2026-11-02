@@ -1,3 +1,3 @@
-import { FutureFeatureScreen } from '@acme/app/screens/FutureFeatureScreen';
-export const metadata = {title:'Secure ordering'};
-export default function Checkout(){return <FutureFeatureScreen feature="checkout"/>;}
+import { CheckoutScreen } from '@acme/app/screens/CheckoutScreen';
+export const metadata={title:'Checkout',robots:{index:false,follow:false}};
+export default function Checkout(){return <CheckoutScreen/>;}
