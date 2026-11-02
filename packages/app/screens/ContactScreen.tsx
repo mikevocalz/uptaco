@@ -10,7 +10,7 @@ export function ContactScreen(){
     <Section className="business-onboarding"><Page>
       <Heading level={2}>We're listening.</Heading>
       <Paragraph>Contact intake is being connected to the secure Uptaco backend. This preview does not collect messages or send email. For immediate assistance with a prior order, use the contact details in your existing receipt.</Paragraph>
-      <Link className="text-action" href="/more">Explore Uptaco <Text aria-hidden="true">→</Text></Link>
+      <Link className="text-action" href="/more">Explore Uptaco <Text aria-hidden={true}>→</Text></Link>
     </Page></Section>
   </Main>;
 }

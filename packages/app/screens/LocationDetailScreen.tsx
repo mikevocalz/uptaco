@@ -15,8 +15,8 @@ export function LocationDetailScreen({location}:{location:'harlem'|'midtown'}){
       <Page className="location-detail-actions">
         <Heading level={2}>Come through.</Heading>
         <Paragraph>Enjoy Uptaco at {data.fullAddress}. Choose this location and discover the menu without leaving the Uptaco website. Opening hours and checkout availability must be verified before publishing.</Paragraph>
-        <Link className="cta cta--orange" href={`/order?location=${location}`}>Explore {data.label} ordering <Text aria-hidden="true">→</Text></Link>
-        <Link href="/menu" className="text-action">Browse menu highlights <Text aria-hidden="true">→</Text></Link>
+        <Link className="cta cta--orange" href={`/order?location=${location}`}>Explore {data.label} ordering <Text aria-hidden={true}>→</Text></Link>
+        <Link href="/menu" className="text-action">Browse menu highlights <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
   </Main>;

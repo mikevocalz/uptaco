@@ -8,7 +8,7 @@ export function MenuHighlightCard({item,index}:{item:MenuHighlight;index:number}
     <Heading level={3}>{item.name}</Heading>
     <Paragraph>{item.description}</Paragraph>
     <Page className="menu-card-actions">
-      <Link className="menu-card-link" href={`/menu/${item.slug}`}>Explore this item <Text aria-hidden="true">↗</Text></Link>
+      <Link className="menu-card-link" href={`/menu/${item.slug}`}>Explore this item <Text aria-hidden={true}>↗</Text></Link>
       <AddToBagButton productId={item.slug} name={item.name} category={item.category}/>
     </Page>
   </Article>;

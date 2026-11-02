@@ -16,7 +16,7 @@ export function FutureFeatureScreen({feature}:{feature:keyof typeof FEATURES}){
       <Text className="page-kicker">{info.kicker}</Text>
       <Heading level={1} className="preline">{info.heading}</Heading>
       <Paragraph>{info.body}</Paragraph>
-      <Link href="/menu" className="text-action">Explore Uptaco menu <Text aria-hidden="true">→</Text></Link>
+      <Link href="/menu" className="text-action">Explore Uptaco menu <Text aria-hidden={true}>→</Text></Link>
     </Section>
     <Section className="interior-order"><OrderChooser/></Section>
   </Main>;

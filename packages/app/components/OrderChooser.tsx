@@ -43,7 +43,7 @@ export function OrderChooser({id}: {id?:string}) {
       </Fieldset>
       <Page className="order-dock-action">
         <Link className="cta cta--black" href={route.href}>
-          {route.label} <Text aria-hidden="true">→</Text>
+          {route.label} <Text aria-hidden={true}>→</Text>
         </Link>
       </Page>
     </Page>

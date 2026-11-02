@@ -17,7 +17,7 @@ export function SiteFooter(){
         <Text className="footer-label">COME FIND US</Text>
         <Address>300 W 135th St · Harlem{'\n'}550 Madison Ave · Midtown</Address>
         <Paragraph>Get in touch or request help directly through Uptaco.</Paragraph>
-        <Link href="/contact">Contact the Uptaco team <Text aria-hidden="true">→</Text></Link>
+        <Link href="/contact">Contact the Uptaco team <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Page>
     <Page className="footer-bottom">

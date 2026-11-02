@@ -18,7 +18,7 @@ export function LocationsScreen(){
             <Text className="page-kicker">0{index+1} / NEW YORK CITY</Text>
             <Heading level={2}>{l.label.toUpperCase()}</Heading>
             <Paragraph>{l.address}{'\n'}{l.crossStreet}</Paragraph>
-            <Link href={`/locations/${id}`} className="cta cta--black">Explore location <Text aria-hidden="true">↗</Text></Link>
+            <Link href={`/locations/${id}`} className="cta cta--black">Explore location <Text aria-hidden={true}>↗</Text></Link>
           </Page>
         </Page>;
       })}

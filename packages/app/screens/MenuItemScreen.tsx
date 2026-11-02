@@ -12,7 +12,7 @@ export function MenuItemScreen({slug}:{slug:string}){
       <Heading level={1}>{item.name.toUpperCase()}</Heading>
       <Paragraph>{item.description}</Paragraph>
       <Page className="product-detail-breadcrumb">
-        <Link href="/menu" className="text-action">All menu items <Text aria-hidden="true">→</Text></Link>
+        <Link href="/menu" className="text-action">All menu items <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
     <Section className="product-detail-content">

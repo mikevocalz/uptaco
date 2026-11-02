@@ -16,7 +16,7 @@ export function BusinessOnboardingScreen({kind}:{kind:'catering'|'partner'}){
           ? 'Catering intake and payment will be activated after Uptaco confirms its item lead times and fulfillment capacity.'
           : 'Partner applications require restaurant approval. The protected application and wholesale account experience is being connected.'}</Paragraph>
         <Paragraph>No request is submitted or information collected on this preview page.</Paragraph>
-        <Link className="cta cta--black" href={catering?'/catering':'/cafe-partners'}>Back to {catering?'catering':'café partners'} <Text aria-hidden="true">→</Text></Link>
+        <Link className="cta cta--black" href={catering?'/catering':'/cafe-partners'}>Back to {catering?'catering':'café partners'} <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
   </Main>;

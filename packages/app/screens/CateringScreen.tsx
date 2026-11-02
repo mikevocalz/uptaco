@@ -6,7 +6,7 @@ export function CateringScreen(){
       <Text className="page-kicker">BIG MORNING ENERGY</Text>
       <Heading level={1}>FEED{'\n'}THE WHOLE{'\n'}ROOM.</Heading>
       <Paragraph>Breakfast meetings, gatherings and everything in between—planned and ordered entirely through Uptaco.</Paragraph>
-      <Link className="cta cta--orange" href="/catering/quote">Plan your Uptaco catering <Text aria-hidden="true">→</Text></Link>
+      <Link className="cta cta--orange" href="/catering/quote">Plan your Uptaco catering <Text aria-hidden={true}>→</Text></Link>
     </Section>
     <Section className="chapter">
       <Page className="chapter-heading"><Heading level={2}>More than a tray{'\n'}of tacos.</Heading>
@@ -20,7 +20,7 @@ export function CateringScreen(){
     <Section className="leadtime-block"><Page><Text className="page-kicker">A LITTLE HEADS-UP</Text>
       <Heading level={2}>Good things{'\n'}take planning.</Heading></Page>
       <Page><Paragraph>Some catering packages need advance notice. Uptaco will confirm each item’s required lead time, availability and final quote before accepting your request.</Paragraph>
-        <Link href="/catering/quote" className="text-action">Start a catering plan <Text aria-hidden="true">→</Text></Link>
+        <Link href="/catering/quote" className="text-action">Start a catering plan <Text aria-hidden={true}>→</Text></Link>
       </Page>
     </Section>
   </Main>;
