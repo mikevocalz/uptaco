@@ -1,5 +1,6 @@
 'use client';
 import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 import {
   insertBagLine,removeBagLine,changeBagQuantity,findBagLine,
   bagCount,MAX_BAG_QUANTITY,type BagLine,type BagProduct,type BagLocation
@@ -20,7 +21,19 @@ interface BagState {
   undoRemoval:(origin?:MotionRect)=>void;
 }
 const bags:BagState['bags']={harlem:[],midtown:[]};
-export const useUptacoBag=create<BagState>((set)=>({
+/** Persist only draft products in this browser session. No payment, user PII,
+ * merchant quotes, motion events or announcements are stored.
+ *
+ * skipHydration prevents server/client markup mismatch: the root bag coordinator
+ * deliberately rehydrates after mount. Native storage is not claimed here.
+ */
+const noStorage = {
+  getItem:(_key:string):string|null=>null,
+  setItem:(_key:string,_value:string):void=>{},
+  removeItem:(_key:string):void=>{}
+};
+export const useUptacoBag=create<BagState>()(
+ persist<BagState, Pick<BagState,'bags'>>((set)=>({
   bags,lastRemoved:null,motionEvent:null,motionSequence:0,announcement:'',
   add:(location,product,origin)=>set(state=>{
     const before=state.bags[location];
@@ -74,4 +87,14 @@ export const useUptacoBag=create<BagState>((set)=>({
       motionSequence:sequence,motionEvent:{sequence,kind:'undo',origin,label:line.name},
       announcement:`${line.name} restored to your ${location} bag.`};
   })
-}));
+ }),{
+  name:'uptaco-guest-preview-bag-v1',
+  version:1,
+  partialize:(state)=>({bags:state.bags}),
+  storage:createJSONStorage<Pick<BagState,'bags'>>(
+    ()=>typeof window!=='undefined' && typeof window.sessionStorage!=='undefined'
+      ? window.sessionStorage : noStorage
+  ),
+  skipHydration:true
+ })
+);

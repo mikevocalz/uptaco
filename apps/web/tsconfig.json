@@ -2,6 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
+      "@acme/ui/html": [
+        "../../packages/ui/html/index.web.tsx"
+      ],
       "@acme/ui": [
         "../../packages/ui/index.ts"
       ],

@@ -59,11 +59,17 @@ try{
   const page=await context.newPage();
   try{
     await page.goto(origin+'/menu',{waitUntil:'domcontentloaded'});
+    // Allow the client root to rehydrate the anonymous draft bag before edits.
+    await page.waitForTimeout(200);
     const button=page.getByRole('button',{name:/add .* to your .* bag/i}).first();
     await button.waitFor({state:'visible',timeout:10000});
     await button.click();
+    await page.getByRole('link',{name:/view your .* bag/i}).first().waitFor({state:'visible',timeout:10000});
+    // Deliberately do a hard navigation: the preview bag must survive reload.
     await page.goto(origin+'/bag',{waitUntil:'domcontentloaded'});
-    await page.getByRole('button',{name:/remove .* from bag/i}).first().click();
+    const remove=page.getByRole('button',{name:/remove .* from bag/i}).first();
+    await remove.waitFor({state:'visible',timeout:10000});
+    await remove.click();
     await page.getByRole('button',{name:/undo removal/i}).click();
     await page.screenshot({path:join(dir,'bag-after-undo-mobile.png'),fullPage:true,animations:'disabled'});
     results.push({name:'bag-interactions',passed:true});
