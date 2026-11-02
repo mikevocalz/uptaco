@@ -1,13 +1,13 @@
-/** Feature gates are capabilities, not marketing toggles.
- * An admin checkbox cannot fabricate a merchant-approved integration.
- * Server must supply a verified entitlement snapshot scoped to location.
+/** Uptaco owns ALL customer destinations. Providers are behind server APIs.
+ * A provider connection never grants permission to navigate outside Uptaco.
  */
 export type UptacoLocation = 'harlem' | 'midtown';
 export type FulfillmentChoice = 'pickup' | 'delivery';
 export type CheckoutRoute = Readonly<{
-  kind: 'external' | 'native' | 'unavailable';
+  kind: 'internal';
   label: string;
-  href?: string;
+  href: string;
+  checkoutEnabled: boolean;
   explanation: string;
 }>;
 export type MerchantCapabilities = Readonly<{
@@ -23,61 +23,41 @@ export type MerchantCapabilities = Readonly<{
   deliveryPartner?: 'square-managed' | 'uber-direct' | 'doordash-drive';
 }>;
 
-/** These URLs appear on Uptaco's official locations and catering pages.
- * The links are NOT evidence of current hours or ordering availability.
+/** Reject off-origin, scheme-relative and malformed routes. Used at feature and
+ * rendering boundaries. Do not interpolate untrusted hrefs into first-party UI.
  */
-export const OFFICIAL_DESTINATIONS = Object.freeze({
-  harlem: {
-    pickup: 'https://uptaco-harlem.square.site/',
-    delivery: 'https://www.grubhub.com/restaurant/up-taco-300-west-135th-street-new-york/13265128'
-  },
-  midtown: {
-    pickup: 'https://uptaco.square.site/',
-    delivery: 'https://www.uptaco.nyc/locations'
-  },
-  catering: 'https://uptaco.gethoneycart.com/',
-  wholesale: 'https://www.uptaco.nyc/cafe',
-  official: 'https://www.uptaco.nyc/',
-  locations: 'https://www.uptaco.nyc/locations'
-} as const);
-
-const EXTERNAL_ALLOWED_HOSTS = new Set([
-  'uptaco-harlem.square.site',
-  'uptaco.square.site',
-  'www.grubhub.com',
-  'www.uptaco.nyc',
-  'uptaco.gethoneycart.com'
-]);
-
-export function trustedExternalUrl(raw: string): string {
-  const url = new URL(raw);
-  if (url.protocol !== 'https:' || url.username || url.password || !EXTERNAL_ALLOWED_HOSTS.has(url.hostname)) {
-    throw new Error('Unapproved external destination');
+export function firstPartyPath(path: string): string {
+  if (typeof path !== 'string' || !path.startsWith('/') || path.startsWith('//') ||
+      /[\\\u0000-\u001f]/.test(path) || /%2f|%5c/i.test(path)) {
+    throw new Error('Only first-party paths are allowed');
   }
-  return url.toString();
+  const candidate = new URL(path, 'https://uptaco.invalid');
+  if (candidate.origin !== 'https://uptaco.invalid' || candidate.username || candidate.password) {
+    throw new Error('Destination must remain inside Uptaco');
+  }
+  return candidate.pathname + candidate.search + candidate.hash;
+}
+
+export function internalOrderHref(location: UptacoLocation, fulfillment: FulfillmentChoice): string {
+  return firstPartyPath(`/menu?location=${location}&fulfillment=${fulfillment}`);
 }
 
 export function selectCheckout(
   location: UptacoLocation,
   fulfillment: FulfillmentChoice,
-  config: MerchantCapabilities | null,
+  config: MerchantCapabilities | null
 ): CheckoutRoute {
-  if (config !== null && config.location !== location) throw new Error('Location capability mismatch');
-  // Explicit server-backed checkout only when merchant permissions and live order service are implemented.
-  if (config?.merchantApproved && config.squareApiCheckout &&
-    (fulfillment === 'pickup' ? config.squarePickup : config.squareDelivery)) {
-    return {
-      kind: 'native',
-      label: fulfillment === 'pickup' ? 'Continue to checkout' : 'Review delivery',
-      explanation: 'Live menu, price, availability, taxes and payment must be revalidated server-side.'
-    };
-  }
-  const destination = OFFICIAL_DESTINATIONS[location][fulfillment];
+  if(config && config.location !== location) throw new Error('Location capability mismatch');
+  const enabled=Boolean(config?.merchantApproved && config.squareApiCheckout &&
+    (fulfillment === 'pickup' ? config.squarePickup : config.squareDelivery));
   return {
-    kind: 'external',
-    label: fulfillment === 'pickup' ? 'Order pickup with Uptaco' : 'See delivery options',
-    href: trustedExternalUrl(destination),
-    explanation: 'You will finish your order with the restaurant ordering provider. Live availability and pricing are confirmed there.'
+    kind:'internal',
+    label:enabled ? 'Choose your food' : 'Explore the menu',
+    href:internalOrderHref(location,fulfillment),
+    checkoutEnabled:enabled,
+    explanation:enabled
+      ? 'Checkout, payment and order status stay inside Uptaco, backed by verified merchant services.'
+      : 'Explore Uptaco here. Checkout is not enabled until the restaurant account is connected. No external ordering site.'
   };
 }
 
