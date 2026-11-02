@@ -1,0 +1,88 @@
+/* Uptaco catering, café partner, help, contact and order tracking design surfaces. */
+.inquiry-workspace{max-width:var(--u-width);margin:auto;display:grid;grid-template-columns:minmax(340px,.85fr) minmax(0,1.15fr);gap:clamp(25px,5vw,85px);padding:95px clamp(18px,5vw,90px) 140px}
+.inquiry-story{position:sticky;top:155px;align-self:start}
+.inquiry-story-number{border-bottom:2px solid var(--u-ink);padding-bottom:20px;font-size:11px;font-weight:950;letter-spacing:.15em}
+.inquiry-story h2{font-size:clamp(47px,6vw,90px);margin:35px 0 25px;line-height:.91}
+.inquiry-story>p{font-size:18px;max-width:450px}
+.inquiry-photo{position:relative;border:3px solid var(--u-ink);margin:50px 0 20px;overflow:hidden;aspect-ratio:1.1;background:var(--u-lavender)}
+.inquiry-photo img{width:100%;height:100%;object-fit:cover}
+.inquiry-photo-label{position:absolute;bottom:0;left:0;right:0;padding:13px 17px;background:var(--u-ink);color:#fff;font-size:11px;letter-spacing:.15em;font-weight:950}
+.inquiry-story .inquiry-leadtime{font-size:13px;color:var(--u-muted);border-left:4px solid var(--u-orange);padding-left:16px}
+.inquiry-form{border:2px solid var(--u-ink);box-shadow:9px 10px 0 var(--u-ink);padding:clamp(25px,4vw,55px);align-self:start;background:var(--u-cream)}
+.inquiry-form h2{font-size:clamp(45px,5vw,78px);line-height:.92;margin:23px 0}
+.inquiry-form>p{font-size:16px;max-width:560px}
+.inquiry-notice{display:flex;align-items:start;gap:13px;padding:15px 18px;margin:27px 0 30px;border-left:5px solid var(--u-orange);background:var(--u-lilac)}
+.inquiry-notice p{font-size:13px}
+.inquiry-notice-icon{font-size:21px}
+.inquiry-form-section{padding:30px 0;border-top:2px solid var(--u-ink)}
+.inquiry-form-section h3{font-size:clamp(28px,3vw,42px);margin-bottom:25px}
+.inquiry-form-section>p{font-size:13px;margin-top:14px;color:var(--u-muted)}
+.inquiry-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0}
+.inquiry-field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.inquiry-field>span{font-size:13px;font-weight:900}
+.inquiry-input,.inquiry-textarea{display:block;width:100%;background:#fff;border:2px solid var(--u-ink);border-radius:0;min-height:55px;padding:15px 13px;font-family:var(--u-body);font-size:15px}
+.inquiry-textarea{min-height:150px}
+.inquiry-choices{border:0;margin:22px 0;padding:0;min-width:0}
+.inquiry-choices legend{font-size:13px;font-weight:900;padding:0;margin-bottom:14px}
+.inquiry-choice-pair{display:flex;align-items:stretch;gap:12px}
+.inquiry-choice{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;flex:1;padding:12px;border:2px solid var(--u-ink);background:#fff;font-weight:900}
+.inquiry-choice.is-active{background:var(--u-orange)}
+.inquiry-disabled{display:flex;justify-content:center;width:100%;opacity:.5;box-shadow:none;cursor:not-allowed}
+.inquiry-fineprint{font-size:12px!important;color:var(--u-muted);max-width:650px;margin:16px 0 20px}
+.inquiry-form .text-action{display:inline-flex}
+.contact-workspace{max-width:var(--u-width);margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;padding:100px clamp(18px,5vw,90px);align-items:start}
+.contact-side{position:sticky;top:150px}
+.contact-side h2{font-size:clamp(50px,6.5vw,96px);line-height:.91;margin:35px 0}
+.contact-side>p{font-size:18px;max-width:440px;margin:25px 0}
+.contact-stamp{width:200px;height:200px;border:16px solid var(--u-ink);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--u-orange);transform:rotate(-9deg);margin:60px 0}
+.contact-stamp span{font-family:var(--u-display);font-size:63px;letter-spacing:-.08em;font-weight:950}
+.contact-form{padding:45px;border:2px solid var(--u-ink);background:var(--u-lilac)}
+.contact-form h2{font-size:clamp(52px,5vw,78px);margin:30px 0 20px}
+.contact-form>.inquiry-field{margin-top:25px}
+.contact-form .cta{width:100%}
+.help-content{max-width:var(--u-width);margin:auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;padding:110px clamp(18px,5vw,90px)}
+.help-intro{position:sticky;top:145px;align-self:start}
+.help-intro h2{font-size:clamp(54px,6vw,104px);line-height:.92;margin:30px 0}
+.help-intro p{font-size:18px;max-width:400px}
+.help-questions{border-top:3px solid var(--u-ink)}
+.help-question{display:grid;grid-template-columns:45px 1fr;gap:20px;padding:35px 5px;border-bottom:1px solid var(--u-line)}
+.help-question-number{font-size:12px;font-weight:900}
+.help-question h3{font-size:clamp(30px,3vw,44px);line-height:1.05;margin-bottom:17px}
+.help-question p{font-size:15px;line-height:1.6;color:var(--u-muted);max-width:650px;margin-bottom:20px}
+.help-question .text-action{font-size:13px}
+.help-last{background:var(--u-lavender);padding:110px clamp(18px,5vw,90px)}
+.help-last h2{font-size:clamp(65px,9vw,140px);margin:20px 0}
+.help-last p{font-size:20px;max-width:530px;margin-bottom:33px}
+.status-workspace{display:grid;grid-template-columns:1fr 1fr;max-width:var(--u-width);gap:55px;padding:100px clamp(18px,5vw,90px);margin:auto}
+.status-main,.status-timeline{min-width:0}
+.status-empty{margin-top:30px;background:var(--u-lilac);padding:60px 40px;border:2px solid var(--u-ink);display:flex;flex-direction:column;align-items:start}
+.status-empty-symbol{font-size:90px;font-family:var(--u-display);font-weight:900;line-height:1;letter-spacing:-.12em;color:var(--u-violet)}
+.status-empty h2,.status-verified h2{font-size:clamp(43px,4vw,68px);line-height:.97;margin:30px 0 20px}
+.status-empty p{font-size:16px;margin-bottom:25px}
+.status-verified{margin-top:30px}
+.status-timeline{border-left:3px solid var(--u-ink);padding-left:50px}
+.status-timeline h2{font-size:clamp(45px,4.5vw,80px);margin:30px 0 40px;line-height:.9}
+.status-step{display:grid;grid-template-columns:40px 1fr;gap:23px;padding:24px 0;border-top:1px solid var(--u-line);opacity:.72}
+.status-step-index{font-size:14px;font-weight:900;color:var(--u-violet)}
+.status-step h3{font-size:clamp(26px,2.8vw,38px);margin-bottom:7px}
+.status-step p{font-size:14px}
+.status-note{font-size:12px;margin-top:30px;color:var(--u-muted);border-top:1px solid var(--u-line);padding-top:20px}
+@media(max-width:980px){
+ .inquiry-workspace,.contact-workspace,.help-content,.status-workspace{grid-template-columns:1fr}
+ .inquiry-story,.contact-side,.help-intro{position:relative;top:auto}
+ .inquiry-photo{max-width:600px}
+ .status-timeline{padding-left:30px}
+ .contact-stamp{display:none}
+}
+@media(max-width:599px){
+ .inquiry-workspace,.contact-workspace,.help-content,.status-workspace{padding:65px 18px;gap:45px}
+ .inquiry-form,.contact-form{padding:24px;box-shadow:5px 5px 0 var(--u-ink)}
+ .inquiry-form-grid{grid-template-columns:1fr;gap:3px}
+ .inquiry-choice-pair{gap:7px}
+ .inquiry-choice{font-size:13px}
+ .inquiry-photo{margin-top:30px}
+ .help-last{padding:70px 18px}
+ .help-question{grid-template-columns:28px 1fr;gap:10px}
+ .status-empty{padding:36px 25px}
+ .status-timeline{padding-left:18px}
+}
