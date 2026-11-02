@@ -1,0 +1,9 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+# Version catalog remains intentionally minimal until Spatial Solito migration.
+# Payload 4 beta must be an exact matching family, never mixed with v3 'latest'.
+catalog:
+  payload: 4.0.0-beta.6
+  '@payloadcms/db-postgres': 4.0.0-beta.6
+  '@payloadcms/ui': 4.0.0-beta.6
