@@ -1,4 +1,5 @@
 import type { Access, CollectionConfig, Field } from 'payload';
+import { premiumCollections } from './premium-collections';
 
 /**
  * Payload CMS v4 BETA draft schema. Review against exact installed beta typings before
@@ -211,5 +212,6 @@ export const uptacoCollections: CollectionConfig[] = [
   Users, Locations, Media, MenuCategories, ModifierGroups, Products, LocationMenuItems,
   CustomerProfiles, Orders, Payments, Fulfillments, CourierDispatches,
   ProviderConnections, LoyaltyAccounts, LoyaltyLedger, Rewards, SitePages,
-  SiteSettings, WebhookEvents, AuditEvents
+  SiteSettings, WebhookEvents, AuditEvents,
+  ...premiumCollections
 ];
