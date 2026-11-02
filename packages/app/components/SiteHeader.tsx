@@ -4,13 +4,10 @@ import { Header, Nav, Page, Text } from '@acme/ui/html';
 import { ShellIcon } from '@acme/ui/icons';
 import { useUptacoSite } from '../store/site.store';
 import { OrderLink } from './SiteOrdering';
-
-/** Main customer web header. Global navigation stays at the top on web;
- * mobile tabs are a separate companion surface rendered by the document shell.
- */
-export function SiteHeader() {
+import { BagPill } from './BagPill';
+export function SiteHeader(){
   const location=useUptacoSite(state=>state.location);
-  const locationLabel=location==='harlem'?'Harlem':'Midtown';
+  const name=location==='harlem'?'Harlem':'Midtown';
   return <Header className="site-header">
     <Page className="topline">
       <Text>HAND-PRESSED. CITY-READY.</Text>
@@ -26,9 +23,10 @@ export function SiteHeader() {
         <Link href="/story">Our story</Link>
       </Nav>
       <Link href="/more" className="header-explore">Explore</Link>
-      <Link href="/locations" className="header-location" aria-label={`Change Uptaco location, currently ${locationLabel}`}>
-        <ShellIcon name="map-pin" size={16}/><Text>{locationLabel}</Text>
+      <Link href="/locations" className="header-location" aria-label={`Change Uptaco location, currently ${name}`}>
+        <ShellIcon name="map-pin" size={16}/><Text>{name}</Text>
       </Link>
+      <BagPill variant="header"/>
       <OrderLink compact/>
     </Page>
   </Header>;

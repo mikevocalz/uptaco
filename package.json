@@ -13,8 +13,9 @@
     "lint": "pnpm --filter web lint",
     "typecheck": "pnpm --filter web typecheck",
     "test": "pnpm --filter @acme/app test && pnpm --filter @uptaco/commerce test && pnpm --filter @uptaco/experience test",
-    "check": "pnpm check:semantic && pnpm typecheck && pnpm test && pnpm build",
-    "check:semantic": "node tooling/check-semantic-ui.mjs"
+    "check": "pnpm check:semantic && pnpm check:first-party && pnpm typecheck && pnpm test && pnpm build",
+    "check:semantic": "node tooling/check-semantic-ui.mjs",
+    "check:first-party": "node tooling/check-first-party-routes.mjs"
   },
   "devDependencies": {
     "typescript": "catalog:",

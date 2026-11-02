@@ -6,6 +6,12 @@ Read the local user-provided **Web Designer Pro** skill where available, the rel
 For foldables, tablets, spatial XR and inspector work, read the pinned `mikevocalz-foldable-layouts` source:
 https://github.com/mikevocalz/universal-spatial-starter/blob/256a97b132803fd2fb8049f7a120cef9cb641f41/.agents/skills/mikevocalz-foldable-layouts/SKILL.md
 
+## First-party ordering requirement (highest priority)
+- Uptaco must never redirect customers to Square Online, Uber Eats, DoorDash, Grubhub, HoneyCart, Odeko, or any third-party checkout or WebView. Third-party platforms are server-side data/fulfillment integrations only after merchant approval. No customer links to other providers.
+- Keep menu, product detail, modifiers, bag, checkout, catering, gift cards, wholesale, receipt and order tracking routes **on the Uptaco domain**. Unknown integration capability means disable transaction safely, not fall back to an offsite checkout.
+- Bag items without verified prices remain **preview state only**. Checkout remains disabled until Uptaco server re-quotes all products and confirms tax, stock, fulfillment and payment capability. Never invent price or call payment APIs based on preview state.
+- Kinetrell owns Add, quantity, Remove, Undo and counter animation. Update Zustand domain state first; animation is non-blocking, keyboard accessible, and reduced-motion-aware. No raw DOM outside UI adapters.
+
 ## Hard boundaries
 - **Website first**, not a native-app launch.
 - No raw HTML in application feature screens. Use semantic `@acme/ui/html` wrappers from Spatial Solito; web DOM implementation is confined to the UI library. Keep Expo `@expo/ui` Jetpack Compose/SwiftUI behind native adapters.

@@ -1,0 +1,27 @@
+name: Uptaco website build verification
+on:
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - 'packages/**'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+      - '.github/workflows/website-build.yml'
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '12.8.1'
+      - name: Install exact catalog versions (review lockfile before merge)
+        run: pnpm install --no-frozen-lockfile
+      - name: Typecheck
+        run: pnpm --filter web typecheck
+      - name: Build website
+        run: pnpm --filter web build

@@ -1,31 +1,26 @@
 'use client';
-import { Page, Button, Article, Heading, Paragraph, Text, Link } from '@acme/ui/html';
-import SolitoLink from 'solito/link';
+import Link from 'solito/link';
+import { Page, Button, Article, Heading, Paragraph, Text } from '@acme/ui/html';
 import { MENU_HIGHLIGHTS } from '../data/menu';
 import { useUptacoSite, type MenuCategory } from '../store/site.store';
-import { selectCheckout } from '@uptaco/experience/capabilities';
-const CATEGORIES = [
-  {key:'all',label:'Everything'},
-  {key:'tacos',label:'Tacos'},
-  {key:'burritos',label:'Burritos'},
-  {key:'drinks',label:'Drinks'},
+import { AddToBagButton } from './AddToBagButton';
+const CATEGORIES=[
+  {key:'all',label:'Everything'},{key:'tacos',label:'Tacos'},
+  {key:'burritos',label:'Burritos'},{key:'drinks',label:'Drinks'},
   {key:'lunch',label:'Lunch'}
 ] as const;
 export function MenuCatalog(){
-  const category = useUptacoSite(s=>s.category);
-  const change = useUptacoSite(s=>s.setCategory);
-  const location=useUptacoSite(s=>s.location);
-  const route=selectCheckout(location,'pickup',null);
+  const category=useUptacoSite(s=>s.category);
+  const change=useUptacoSite(s=>s.setCategory);
   const visible=MENU_HIGHLIGHTS.filter(p=>category==='all'||p.category===category);
   return <Page className="menu-workspace-grid">
     <Page className="menu-category-pane">
       <Text className="menu-pane-label">BROWSE THE COUNTER</Text>
-      <Page className="menu-category-list" role="radiogroup" aria-label="Filter menu by category">
-        {CATEGORIES.map(option=><Button key={option.key}
-          role="radio" aria-checked={category===option.key}
+      <Page className="menu-category-list" role="group" aria-label="Filter menu by category">
+        {CATEGORIES.map(option=><Button key={option.key} aria-pressed={category===option.key}
           className={category===option.key?'menu-category active':'menu-category'}
           onPress={()=>change(option.key as MenuCategory)}>
-          {option.label} <Text aria-hidden="true">↗</Text>
+          {option.label}<Text aria-hidden="true">↗</Text>
         </Button>)}
       </Page>
     </Page>
@@ -37,19 +32,19 @@ export function MenuCatalog(){
             <Text className="menu-list-kicker">{item.kicker}</Text>
             <Heading level={3}>{item.name}</Heading>
             <Paragraph>{item.description}</Paragraph>
-            <SolitoLink className="menu-card-link" href={`/menu/${item.slug}`}>View product details <Text aria-hidden="true">↗</Text></SolitoLink>
+            <Page className="menu-item-actions">
+              <Link className="menu-card-link" href={`/menu/${item.slug}`}>Product details <Text aria-hidden="true">→</Text></Link>
+              <AddToBagButton productId={item.slug} name={item.name} category={item.category}/>
+            </Page>
           </Page>
-          <Text className="menu-list-symbol" aria-hidden="true">✳</Text>
         </Article>)}
       </Page>
     </Page>
     <Page className="menu-inspector">
-      <Text className="menu-pane-label">READY WHEN YOU ARE</Text>
-      <Heading level={3}>Your order.{'\n'}Your way.</Heading>
-      <Paragraph>Choose your location to see actual prices, modifiers, preparation windows, and current availability.</Paragraph>
-      <Link className="cta cta--black" href={route.href} target="_blank" rel="noopener noreferrer">
-        Order in {location==='harlem'?'Harlem':'Midtown'} <Text aria-hidden="true">↗</Text>
-      </Link>
+      <Text className="menu-pane-label">MAKE IT YOURS</Text>
+      <Heading level={3}>Your morning.{'\n'}Your bag.</Heading>
+      <Paragraph>Add favorites, adjust quantities or remove anything here. No offsite ordering. Checkout is enabled once Uptaco’s Square merchant connection is ready.</Paragraph>
+      <Link className="cta cta--black" href="/bag">View your Uptaco bag <Text aria-hidden="true">→</Text></Link>
     </Page>
   </Page>;
 }

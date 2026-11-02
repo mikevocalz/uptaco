@@ -17,7 +17,7 @@ Home, Menu, Harlem, Midtown, Catering, Our Story, Café Partners, Contact; resta
 ### Core screens
 - `/`: branded food hero, Harlem ordering CTA, real popular products, locations, catering
 - `/menu`, `/menu/[slug]`: category master / menu detail / bag inspector on wide web; accessible item view and sticky bag on phones
-- `/order`, `/bag`, `/checkout`, `/orders/[token]`: real provider-backed transactions and lifecycle or verified external redirect
+- `/order`, `/bag`, `/checkout`, `/orders/[token]`: first-party Uptaco transactions and lifecycle, with fail-closed merchant gates; no external redirects
 - `/locations/harlem`, `/locations/midtown`: real store details
 - `/catering`, `/cafe-partners`, `/story`, `/contact`: business and editorial content, not throwaway cards
 - `/account`, `/rewards`: only when verified consumer authentication/loyalty is enabled

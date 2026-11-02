@@ -6,14 +6,14 @@ export function OrderEntryScreen(){
     <Section className="interior-hero interior-hero--order">
       <Text className="page-kicker">YOUR BREAKFAST, YOUR CALL</Text>
       <Heading level={1}>LET'S GET{'\n'}YOU FED.</Heading>
-      <Paragraph>Pick your Uptaco location, then decide whether you're stopping by or getting delivery.</Paragraph>
+      <Paragraph>Choose Uptaco Harlem or Midtown, pickup or delivery, and continue to the menu without leaving the site.</Paragraph>
     </Section>
     <Section className="order-entry-content">
       <OrderChooser/>
       <Page className="order-entry-note">
-        <Heading level={2}>A quick heads-up.</Heading>
-        <Paragraph>Prices, item options, hours, preparation times and payment are confirmed by Uptaco's current ordering provider. You don't need an Uptaco website account to start an order.</Paragraph>
-        <Link href="/menu" className="text-action">Explore the menu <Text aria-hidden="true">↗</Text></Link>
+        <Heading level={2}>Always Uptaco.</Heading>
+        <Paragraph>The menu, bag, checkout, confirmations and order tracking will all run here. Live ordering is disabled until the merchant integration is configured and verified; this site never redirects customers to another checkout.</Paragraph>
+        <Link href="/menu" className="text-action">Explore the menu <Text aria-hidden="true">→</Text></Link>
       </Page>
     </Section>
   </Main>;
