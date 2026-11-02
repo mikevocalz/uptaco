@@ -9,6 +9,9 @@ const origin=process.env.UPTACO_TEST_ORIGIN??'http://127.0.0.1:3000';
 const dir=new URL('../visual-screenshots/',import.meta.url).pathname;
 mkdirSync(dir,{recursive:true});
 const routes=[
+  ['study-soft-rise','/design-preview/soft-rise'],
+  ['study-counter','/design-preview/counter-editorial'],
+  ['study-splash','/design-preview/morning-splash'],
   ['home','/'], ['menu','/menu'],['bec','/menu/bec-breakfast-taco'],
   ['order','/order'],['bag','/bag'],['checkout','/checkout'],
   ['account-guest','/account'],['account-orders','/account/orders'],

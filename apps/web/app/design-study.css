@@ -1,0 +1,86 @@
+/* Temporary Web Designer Pro explorations — full production semantics,
+   authentic Uptaco branding / photo references. Removed before launch. */
+.uptaco-study{min-height:calc(100svh - 94px)}
+.study-hero{position:relative;isolation:isolate;min-height:840px;overflow:hidden;padding:50px clamp(25px,5vw,88px) 90px}
+.study-color-field{position:absolute;z-index:-1;pointer-events:none}
+.study-heading{position:relative;z-index:3;max-width:970px}
+.study-eyebrow{display:block;letter-spacing:.1em;font-size:12px;font-weight:750;margin-bottom:38px}
+.study-heading h1{white-space:pre-line;font-family:var(--u-display);font-weight:690;font-size:clamp(75px,9.7vw,159px);line-height:.89;letter-spacing:-.065em;max-width:950px}
+.study-copy{position:relative;z-index:4;display:flex;align-items:flex-start;flex-direction:column;gap:28px;margin-top:45px;max-width:425px}
+.study-copy p{font-size:clamp(18px,1.45vw,23px);line-height:1.44}
+.study-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:32px;padding:19px 25px;border-radius:999px;background:#4F3868;color:#fff!important;font-size:15px;font-weight:750}
+.study-cta:hover{transform:translateY(-2px)}
+.study-photo{position:absolute;overflow:hidden;z-index:2;right:4%;top:4%;width:41%;height:650px}
+.study-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.study-photo figcaption{position:absolute;left:15px;bottom:18px;display:block;border-radius:99px;background:#FFFAF2;color:#543B6A;padding:13px 20px;font-size:11px;letter-spacing:.04em;font-weight:740}
+.study-float{position:absolute;z-index:5;width:170px;height:170px;display:flex;align-items:center;justify-content:center;padding:25px;text-align:center;line-height:1.2;border-radius:49% 51% 43% 57%/56% 42% 58% 44%;font-family:var(--u-display);font-weight:750;font-size:18px}
+.study-art-mark{position:absolute;z-index:1;width:250px;height:250px}
+.study-art-mark img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.study-tag{position:absolute;bottom:35px;right:5%;font-size:11px;letter-spacing:.12em;font-weight:700}
+/* A: Place/material family — a soft lavender breakfast counter. */
+.study-hero--soft-rise{background:#D8BCE9;border-radius:0 0 82px 82px}
+.study-hero--soft-rise .study-heading h1{font-family:"Fredoka Variable",var(--u-display);font-weight:630;max-width:760px}
+.study-hero--soft-rise .study-color-field{right:-8%;top:6%;width:59%;height:88%;background:#F9D9CB;border-radius:48% 52% 42% 58%/51% 43% 57% 49%;transform:rotate(-15deg)}
+.study-hero--soft-rise .study-photo{right:7%;top:5%;width:38%;height:640px;border-radius:51% 49% 48% 52%/46% 55% 45% 54%;transform:rotate(6deg)}
+.study-hero--soft-rise .study-photo img{transform:rotate(-6deg) scale(1.18)}
+.study-hero--soft-rise .study-float{right:7%;bottom:32px;background:#F68F6A;color:#261A2F;transform:rotate(12deg)}
+.study-hero--soft-rise .study-art-mark{display:none}
+/* B: Printed/typographic family — a breakfast poster without a boxed hero. */
+.study-hero--counter-editorial{background:#FFFBF4}
+.study-hero--counter-editorial .study-heading{max-width:1060px}
+.study-hero--counter-editorial .study-heading h1{font-size:clamp(78px,10vw,160px);font-weight:690;color:#31233A}
+.study-hero--counter-editorial .study-color-field{right:-9%;top:-30%;width:38%;height:130%;background:#F5C5A7;border-radius:49% 51% 51% 49%/40% 60% 40% 60%;transform:rotate(18deg)}
+.study-hero--counter-editorial .study-photo{right:12%;top:16%;width:32%;height:610px;border-radius:46% 54% 42% 58%/50% 44% 56% 50%;transform:rotate(-6deg)}
+.study-hero--counter-editorial .study-photo img{transform:rotate(6deg) scale(1.17)}
+.study-hero--counter-editorial .study-float{right:2%;top:50px;width:124px;height:124px;background:#D4B3E7;color:#4C3861;transform:rotate(-12deg);font-size:13px}
+.study-hero--counter-editorial .study-art-mark{bottom:-80px;right:34%;width:250px;height:270px;opacity:.085;transform:rotate(-15deg)}
+.study-hero--counter-editorial .study-copy{margin-top:24px}
+/* C: Colour/material family — big orange ribbon and sculptural inverse mark. */
+.study-hero--morning-splash{background:#533A68;color:#FFFAF5}
+.study-hero--morning-splash .study-heading{max-width:920px}
+.study-hero--morning-splash .study-heading h1{font-size:clamp(78px,9.5vw,148px);color:#fff;font-weight:690}
+.study-hero--morning-splash .study-color-field{right:-20%;top:-17%;width:69%;height:121%;background:#FFA57E;border-radius:63% 37% 52% 48%/47% 60% 40% 53%;transform:rotate(-20deg)}
+.study-hero--morning-splash .study-photo{right:4%;top:16%;width:36%;height:570px;border-radius:57% 43% 53% 47%/52% 45% 55% 48%;transform:rotate(6deg)}
+.study-hero--morning-splash .study-photo img{transform:rotate(-6deg) scale(1.14)}
+.study-hero--morning-splash .study-photo figcaption{background:#F3DFEB;color:#533A68}
+.study-hero--morning-splash .study-float{right:29%;bottom:42px;background:#EEE3BA;color:#533A68;transform:rotate(-11deg)}
+.study-hero--morning-splash .study-art-mark{right:2%;top:4%;width:220px;height:230px}
+.study-hero--morning-splash .study-art-mark img{filter:invert(1);mix-blend-mode:screen}
+.study-hero--morning-splash .study-cta{background:#FFE8DD;color:#452E5A!important}
+@media(max-width:830px){
+  .study-hero{min-height:790px;padding:50px 23px}
+  .study-heading h1{font-size:clamp(62px,11.8vw,105px)}
+  .study-photo{top:36%;right:-10%;width:70%;height:425px}
+  .study-color-field{top:25%}
+  .study-copy{margin-top:300px;max-width:310px}
+  .study-float{width:110px;height:110px;font-size:13px;right:5%;bottom:20px}
+}
+@media(max-width:599px){
+  .uptaco-study{min-height:760px}
+  .study-hero{min-height:815px;padding:28px 22px 88px}
+  .study-heading h1{font-size:clamp(59px,15vw,83px);line-height:.94;max-width:345px}
+  .study-eyebrow{font-size:10px;margin-bottom:24px}
+  .study-photo,.study-hero--soft-rise .study-photo,.study-hero--counter-editorial .study-photo,.study-hero--morning-splash .study-photo{
+    top:250px;right:-14%;width:90%;height:360px;border-radius:47% 53% 48% 52%/52% 42% 58% 48%;
+  }
+  .study-hero--soft-rise .study-photo{top:250px}
+  .study-hero--counter-editorial .study-heading h1{font-size:65px;max-width:365px}
+  .study-hero--counter-editorial .study-photo{top:294px;right:-8%;width:75%}
+  .study-hero--morning-splash .study-heading h1{font-size:59px}
+  .study-hero--morning-splash .study-photo{top:302px}
+  .study-hero--soft-rise .study-color-field{width:103%;height:55%;right:-35%;top:23%}
+  .study-hero--counter-editorial .study-color-field{width:74%;height:67%;right:-22%;top:25%}
+  .study-hero--morning-splash .study-color-field{width:119%;height:70%;right:-55%;top:23%}
+  .study-copy,.study-hero--counter-editorial .study-copy{
+    position:absolute;left:23px;bottom:35px;margin:0;max-width:280px;gap:16px;
+  }
+  .study-copy p{font-size:16px;max-width:250px}
+  .study-cta{padding:15px 19px;gap:22px;font-size:13px}
+  .study-float,.study-hero--soft-rise .study-float,.study-hero--counter-editorial .study-float,.study-hero--morning-splash .study-float{
+    width:92px;height:92px;right:8px;bottom:133px;font-size:10px
+  }
+  .study-hero--counter-editorial .study-float{top:300px;bottom:auto}
+  .study-hero--morning-splash .study-art-mark{display:none}
+  .study-photo figcaption{font-size:9px;padding:9px 11px}
+  .study-tag{display:none}
+}
