@@ -1,0 +1,24 @@
+{
+  "name": "uptaco",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Uptaco — premium restaurant web and commerce monorepo",
+  "packageManager": "pnpm@12.8.1",
+  "engines": {
+    "node": ">=24.22.1 <26"
+  },
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "lint": "pnpm --filter web lint",
+    "typecheck": "pnpm --filter web typecheck",
+    "test": "pnpm --filter @acme/app test && pnpm --filter @uptaco/commerce test && pnpm --filter @uptaco/experience test",
+    "check": "pnpm check:semantic && pnpm typecheck && pnpm test && pnpm build",
+    "check:semantic": "node tooling/check-semantic-ui.mjs"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "@types/node": "catalog:",
+    "turbo": "catalog:"
+  }
+}

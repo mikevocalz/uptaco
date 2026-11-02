@@ -1,0 +1,26 @@
+name: Uptaco contract tests
+on:
+  pull_request:
+  push:
+    branches:
+      - feat/spatial-solito-site-foundation
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['22.16.0','24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Semantic feature UI guard
+        run: node tooling/check-semantic-ui.mjs
+      - name: Navigation / ordering / capability contracts (no credentials)
+        run: >
+          node --experimental-strip-types --test
+          packages/app/navigation/contracts.test.mjs
+          packages/commerce/test/order.test.mjs
+          packages/experience/test/capabilities.test.mjs

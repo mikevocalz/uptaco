@@ -1,0 +1,51 @@
+{
+  "name": "@acme/ui",
+  "private": true,
+  "version": "0.1.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./html": "./html/index.tsx",
+    "./adaptive": "./adaptive/index.ts",
+    "./motion": {
+      "react-native": "./motion/kinetrell.native.tsx",
+      "default": "./motion/kinetrell.web.tsx"
+    },
+    "./media": {
+      "react-native": "./media/BrandImage.native.tsx",
+      "default": "./media/BrandImage.web.tsx"
+    },
+    "./icons": {
+      "react-native": "./icons.native.tsx",
+      "default": "./icons.web.tsx"
+    }
+  },
+  "dependencies": {
+    "@expo/html-elements": "catalog:",
+    "@expo/ui": "catalog:",
+    "expo": "catalog:",
+    "expo-image": "catalog:",
+    "kinetrell": "catalog:",
+    "gsap": "catalog:",
+    "@gsap/react": "catalog:",
+    "lenis": "catalog:",
+    "next": "catalog:",
+    "react-native-css": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-worklets": "catalog:",
+    "react-native": "catalog:",
+    "solito": "catalog:",
+    "uniwind": "catalog:",
+    "lucide-react": "catalog:",
+    "lucide-react-native": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "^19.3.0",
+    "react-native": ">=0.88"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}
