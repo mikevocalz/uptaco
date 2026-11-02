@@ -48,3 +48,16 @@ export const bagRowExitMotion=defineMotion({
     {target:'row',to:{opacity:0,y:35,x:38,scale:0.94,rotation:4},atMs:100,durationMs:210,ease:'power2.in'}
   ]
 });
+
+/** Native toast is ephemeral: it settles, reads, then disappears.
+ * Never leave a permanent animated overlay covering a customer's screen.
+ */
+export const bagNativeFeedbackMotion=defineMotion({
+  id:'uptaco-native-bag-feedback',
+  initial:{toast:{opacity:0,scale:0.92,y:20}},
+  tracks:[
+    {target:'toast',to:{opacity:1,scale:1,y:0},durationMs:160,ease:'power2.out'},
+    {target:'toast',to:{opacity:1,scale:1,y:0},atMs:160,durationMs:650,ease:'linear'},
+    {target:'toast',to:{opacity:0,scale:0.96,y:-11},atMs:810,durationMs:180,ease:'power2.in'}
+  ]
+});

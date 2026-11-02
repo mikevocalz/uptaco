@@ -30,7 +30,7 @@ export function captureBagRemoval(id:string):MotionRect|undefined{
     if(!ghost.isConnected)return;
     const plan=compileMotion(bagRowExitMotion);
     const timeline=createGsapTimeline(plan,{row:ghost},{paused:true});
-    timeline.eventCallback('onComplete',()=>{timeline.kill();ghost.remove();});
+    timeline.eventCallback('onComplete',()=>{timeline.kill();ghost.remove();document.removeEventListener('visibilitychange',onVisibility);});
     timeline.play();
   }).catch(()=>ghost.remove());
   // The row ghost expires even if a tab was backgrounded mid-animation.
@@ -68,7 +68,12 @@ function fallbackOrigin():MotionRect{
 export function BagMotionLayer({event}:{event:BagVisualEvent|null}){
   const active=useRef<Set<()=>void>>(new Set());
   useEffect(()=>{
-    if(!event||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    if(!event)return;
+    if(event.kind==='remove'){
+      // After removing a keyboard-focused row, move focus to its Undo action.
+      requestAnimationFrame(()=>document.getElementById('bag-undo-trigger')?.focus());
+    }
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     const from=event.origin??fallbackOrigin();
     const removing=event.kind==='remove'||event.kind==='decrease';
     const target=bagTarget()??(removing

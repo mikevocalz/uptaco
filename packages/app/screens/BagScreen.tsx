@@ -38,7 +38,7 @@ export function BagScreen(){
               {lines.map(line=>{
                 const rowId=`bag-row-${encodeURIComponent(line.key)}`;
                 return <Article key={line.key} id={rowId} className="bag-row">
-                  <Page className="bag-row-stamp" aria-hidden="true">U</Page>
+                  <Page className="bag-row-stamp" aria-hidden="true"><Text>U</Text></Page>
                   <Page className="bag-row-content">
                     <Text className="bag-row-category">{line.category.toUpperCase()}</Text>
                     <Heading level={3}>{line.name}</Heading>
