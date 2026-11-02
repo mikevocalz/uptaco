@@ -1,3 +1,3 @@
-import { FutureFeatureScreen } from '@acme/app/screens/FutureFeatureScreen';
-export const metadata = {title:'Account'};
-export default function Account(){return <FutureFeatureScreen feature="account"/>;}
+import { AccountScreen } from '@acme/app/screens/AccountScreen';
+export const metadata={title:'My Uptaco'};
+export default function AccountPage(){return <AccountScreen/>;}
