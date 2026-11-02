@@ -14,7 +14,7 @@
   --u-white:#FFFFFF;
   --u-muted:#685971;
   --u-line:rgba(64,43,75,.13);
-  --u-display:"Fredoka Variable","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
+  --u-display:"Bricolage Grotesque Variable","Avenir Next",Arial,sans-serif;
   --u-body:"Bricolage Grotesque Variable","Avenir Next",Arial,sans-serif;
   --u-ease:cubic-bezier(.23,.79,.28,1);
   --u-width:1520px;
@@ -67,7 +67,7 @@ body.uptaco-site{background:var(--u-cream);color:var(--u-ink);font-family:var(--
 .hero-display{margin:82px auto 0;max-width:1600px;padding:0 clamp(24px,5vw,85px)}
 .hero-title{
   max-width:73%;
-  font-family:var(--u-display);
+  font-family:"Fredoka Variable","Arial Rounded MT Bold",sans-serif;
   font-size:clamp(76px,11vw,190px);
   font-weight:620;
   letter-spacing:-.058em;
@@ -108,7 +108,7 @@ body.uptaco-site{background:var(--u-cream);color:var(--u-ink);font-family:var(--
   border-radius:48% 52% 40% 60%/57% 42% 58% 43%;
   display:flex;align-items:center;justify-content:center;flex-direction:column;
   transform:rotate(9deg);
-  font-family:var(--u-display);font-weight:630;
+  font-family:"Fredoka Variable",var(--u-display);font-weight:630;
   line-height:1.1;font-size:19px;text-align:center;
 }
 .hero-lower{
@@ -188,7 +188,7 @@ body.uptaco-site{background:var(--u-cream);color:var(--u-ink);font-family:var(--
   border:0;border-radius:70px 110px 65px 95px;
   background:#F1DFED;color:var(--u-violet)
 }
-.story-band h2{font-family:var(--u-display);font-size:clamp(80px,9.3vw,160px);font-weight:590;letter-spacing:-.05em;line-height:.96;margin:42px 0 45px}
+.story-band h2{font-family:var(--u-display);font-size:clamp(80px,9.3vw,160px);font-weight:700;letter-spacing:-.05em;line-height:.96;margin:42px 0 45px}
 .story-band-detail p{font-size:19px;font-weight:470;line-height:1.48}
 .story-band-label{font-size:12px;letter-spacing:.06em;font-weight:700}
 .story-band-outline{display:none}
@@ -414,3 +414,23 @@ body.uptaco-site{background:var(--u-cream);color:var(--u-ink);font-family:var(--
   .hero-photo,.hero-photo-image,.hero-soft-sticker,.rewards-brand-tile,.gift-card-visual{transform:none!important}
   .menu-card:hover,.cta:hover,.hero-browse:hover{transform:none!important}
 }
+
+/* Round 2 typography: the *logo* owns the liquid expression.
+   Supporting typography should be a confident warm grotesque, not
+   repeated cartoon bubble lettering on every screen. */
+.uptaco-site :where(h1,h2,h3){
+  font-family:var(--u-display);
+  font-weight:650;
+  letter-spacing:-.056em;
+}
+.hero-title{font-family:"Fredoka Variable",var(--u-display);font-weight:640}
+.chapter-heading h2,.workspace-heading h2,.menu-card h3,.menu-list-item h3,
+.story-band h2,.catering-stage h2,.partner-chapter h2,.footer-title,
+.interior-hero h1,.account-detail-heading h2,.rewards-card h3,
+.gifts-configurator h2,.checkout-panel h2{
+  font-family:var(--u-display);
+  font-weight:660;
+  letter-spacing:-.055em;
+}
+.menu-card h3{line-height:1.04}
+.story-band h2,.catering-stage h2{font-weight:620}
