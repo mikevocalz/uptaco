@@ -28,3 +28,20 @@ jobs:
           packages/commerce/test/order.test.mjs
           packages/commerce/test/bag.test.mjs
           packages/experience/test/capabilities.test.mjs
+
+  payload-schema:
+    name: Payload v4 schema types
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '12.8.1'
+      - name: Install exact Payload beta dependencies
+        run: pnpm install --no-frozen-lockfile
+      - name: Typecheck CMS collection definitions
+        run: pnpm --filter @uptaco/payload typecheck
