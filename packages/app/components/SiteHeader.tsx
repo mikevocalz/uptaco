@@ -5,6 +5,8 @@ import { ShellIcon } from '@acme/ui/icons';
 import { useUptacoSite } from '../store/site.store';
 import { OrderLink } from './SiteOrdering';
 import { BagPill } from './BagPill';
+import { BrandImage } from '@acme/ui/media';
+import { UPTACO_MEDIA } from '../data/brand';
 export function SiteHeader(){
   const location=useUptacoSite(state=>state.location);
   const name=location==='harlem'?'Harlem':'Midtown';
@@ -14,7 +16,7 @@ export function SiteHeader(){
       <Text className="topline__right">HARLEM & MIDTOWN · NYC</Text>
     </Page>
     <Page className="header-inner">
-      <Link href="/" className="wordmark" aria-label="Uptaco home">UPTACO<Text className="wordmark-dot">.</Text></Link>
+      <Link href="/" className="brand-logo" aria-label="Uptaco home"><BrandImage src={UPTACO_MEDIA.wordmarkBlack} width={66} height={66} sizes="66px" priority alt="Uptaco sculptural logo" className="brand-logo-image"/></Link>
       <Nav className="desktop-nav" aria-label="Main navigation">
         <Link href="/menu">The menu</Link>
         <Link href="/locations">Find Uptaco</Link>

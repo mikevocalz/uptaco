@@ -1,20 +1,45 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@acme/ui": ["../../packages/ui/index.ts"],
-      "@acme/ui/*": ["../../packages/ui/*"],
-      "@acme/app": ["../../packages/app/index.ts"],
-      "@acme/app/*": ["../../packages/app/*"],
-      "@uptaco/experience/*": ["../../packages/experience/src/*"],
-      "@uptaco/commerce/*": ["../../packages/commerce/src/*"]
+      "@acme/ui": [
+        "../../packages/ui/index.ts"
+      ],
+      "@acme/ui/*": [
+        "../../packages/ui/*"
+      ],
+      "@acme/app": [
+        "../../packages/app/index.ts"
+      ],
+      "@acme/app/*": [
+        "../../packages/app/*"
+      ],
+      "@uptaco/experience/*": [
+        "../../packages/experience/src/*"
+      ],
+      "@uptaco/commerce/*": [
+        "../../packages/commerce/src/*"
+      ]
     },
     "incremental": true,
     "jsx": "preserve",
-    "plugins": [{"name":"next"}],
-    "types": ["node","react"]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": [
+      "node",
+      "react"
+    ]
   },
-  "include": ["next-env.d.ts","**/*.ts","**/*.tsx",".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
