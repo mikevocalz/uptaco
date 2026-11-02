@@ -1,0 +1,15 @@
+/* Real BEC imagery from Uptaco's published website. No generated food photos. */
+.menu-card-food-photo{position:absolute;right:-9px;top:55px;width:44%;height:190px;overflow:hidden;
+  border:3px solid var(--u-ink);transform:rotate(8deg);background:var(--u-lavender);
+  box-shadow:7px 7px 0 var(--u-ink);z-index:1}
+.menu-card-food-photo img{width:100%!important;height:100%!important;object-fit:cover;object-position:center}
+.menu-card:has(.menu-card-food-photo) h3{position:relative;z-index:2;max-width:77%;font-size:clamp(34px,3.6vw,60px);text-shadow:2px 2px 0 var(--u-cream)}
+.product-feature-photo{position:relative;overflow:hidden;max-width:630px;margin:35px 0 20px;background:var(--u-lavender);
+  border:3px solid var(--u-ink);box-shadow:8px 8px 0 var(--u-ink)}
+.product-feature-photo img{width:100%!important;height:auto!important;max-height:630px;object-fit:cover}
+.product-feature-photo>span{position:absolute;bottom:0;left:0;right:0;background:var(--u-ink);color:#fff;
+  padding:14px;font-size:11px;letter-spacing:.13em;font-weight:900}
+@media(max-width:599px){
+  .menu-card-food-photo{width:43%;height:145px;right:7px;top:62px}
+  .menu-card:has(.menu-card-food-photo) h3{max-width:76%;font-size:43px}
+}

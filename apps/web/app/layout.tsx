@@ -3,6 +3,7 @@ import './globals.css';
 import './brand.css';
 import './experience.css';
 import './forms.css';
+import './product-media.css';
 import { SiteHeader } from '@acme/app/components/SiteHeader';
 import { SiteFooter } from '@acme/app/components/SiteFooter';
 import { MobileTabBar } from '@acme/app/components/MobileTabBar.web';
