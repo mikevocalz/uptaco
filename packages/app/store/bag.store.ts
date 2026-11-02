@@ -33,7 +33,7 @@ const noStorage = {
   removeItem:(_key:string):void=>{}
 };
 export const useUptacoBag=create<BagState>()(
- persist<BagState, Pick<BagState,'bags'>>((set)=>({
+ persist<BagState, [], [], Pick<BagState,'bags'>>((set)=>({
   bags,lastRemoved:null,motionEvent:null,motionSequence:0,announcement:'',
   add:(location,product,origin)=>set(state=>{
     const before=state.bags[location];
